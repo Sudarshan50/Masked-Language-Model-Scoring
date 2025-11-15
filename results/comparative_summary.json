@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-11-15T15:51:56.987457",
+  "dataset": "data/extensive_test_pairs.jsonl",
+  "total_pairs": 50,
+  "models": {
+    "bert-base-uncased": {
+      "accuracy": 0.84,
+      "correct": 42,
+      "total": 50,
+      "categories": {
+        "ARG_STRUCTURE": {
+          "total": 24,
+          "correct": 19,
+          "accuracy": 0.7916666666666666
+        },
+        "SELECTIONAL_PREFERENCE": {
+          "total": 26,
+          "correct": 23,
+          "accuracy": 0.8846153846153846
+        }
+      }
+    },
+    "roberta-base": {
+      "accuracy": 0.98,
+      "correct": 49,
+      "total": 50,
+      "categories": {
+        "ARG_STRUCTURE": {
+          "total": 24,
+          "correct": 23,
+          "accuracy": 0.9583333333333334
+        },
+        "SELECTIONAL_PREFERENCE": {
+          "total": 26,
+          "correct": 26,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "gpt2": {
+      "accuracy": 1.0,
+      "correct": 50,
+      "total": 50,
+      "categories": {
+        "ARG_STRUCTURE": {
+          "total": 24,
+          "correct": 24,
+          "accuracy": 1.0
+        },
+        "SELECTIONAL_PREFERENCE": {
+          "total": 26,
+          "correct": 26,
+          "accuracy": 1.0
+        }
+      }
+    }
+  }
+}

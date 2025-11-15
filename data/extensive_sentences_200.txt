@@ -1,0 +1,271 @@
+# Extensive sentence test set for semantic plausibility evaluation
+# 200+ sentences covering multiple categories and phenomena
+# Lines starting with # are comments
+
+# === CATEGORY 1: HIGHLY PLAUSIBLE SENTENCES (Natural, Common) ===
+
+The cat sat on the mat.
+She ate breakfast this morning.
+He drove to work yesterday.
+The children played in the park.
+I bought groceries at the store.
+The sun rises in the east.
+Birds fly in the sky.
+She read a book before bed.
+He drinks coffee every morning.
+The teacher explained the lesson.
+They walked along the beach.
+Rain falls from the clouds.
+The dog barked at the mailman.
+She answered the phone quickly.
+He fixed the broken computer.
+The baby cried for her mother.
+I listened to music on my phone.
+The flowers bloomed in spring.
+She cooked dinner for the family.
+He painted the living room walls.
+The students took notes in class.
+I wrote a letter to my friend.
+The doctor examined the patient.
+She planted seeds in the garden.
+He cleaned the kitchen after dinner.
+
+# === CATEGORY 2: MODERATELY PLAUSIBLE (Less Common but Natural) ===
+
+The artist painted a beautiful landscape.
+They discussed the economic situation.
+The scientist conducted an important experiment.
+She memorized the entire poem.
+He repaired the antique clock.
+The chef prepared an elaborate meal.
+They debated philosophical questions.
+She solved the mathematical equation.
+He constructed a wooden birdhouse.
+The musician composed a symphony.
+They analyzed the historical data.
+She translated the ancient text.
+He diagnosed the medical condition.
+The architect designed the building.
+They negotiated the business contract.
+
+# === CATEGORY 3: ANIMAL-RELATED PLAUSIBLE ===
+
+The horse galloped across the field.
+The fish swam in the ocean.
+The bee pollinated the flowers.
+The lion roared in the jungle.
+The owl hooted at night.
+The rabbit hopped through the grass.
+The squirrel gathered nuts for winter.
+The dolphin jumped out of the water.
+The snake slithered under the rock.
+The eagle soared through the sky.
+The frog croaked by the pond.
+The bear hibernated in the cave.
+The turtle moved slowly across the sand.
+The butterfly landed on the flower.
+The spider spun a web.
+
+# === CATEGORY 4: SELECTIONAL PREFERENCE VIOLATIONS (Odd Objects) ===
+
+She drank the chair.
+He ate the table.
+They cooked the stone.
+I wore the water.
+She read the mountain.
+He wrote the cloud.
+They sang the building.
+I painted the democracy.
+She drove the happiness.
+He bought the sadness.
+They sold the anger.
+I cleaned the idea.
+She washed the thought.
+He broke the freedom.
+They fixed the justice.
+I opened the concept.
+She closed the theory.
+He lifted the philosophy.
+They carried the mathematics.
+I threw the wisdom.
+
+# === CATEGORY 5: AGENT-PATIENT REVERSALS (Wrong Direction) ===
+
+The wall gave John the button.
+The book read the student.
+The food ate the person.
+The car drove the man.
+The house built the carpenter.
+The lesson taught the teacher.
+The question answered the student.
+The medicine cured the doctor.
+The painting painted the artist.
+The song sang the singer.
+The story wrote the author.
+The picture drew the photographer.
+The movie watched the audience.
+The play acted the performers.
+The dance danced the dancers.
+The meal cooked the chef.
+The poem wrote the poet.
+The sculpture carved the sculptor.
+The symphony conducted the conductor.
+The experiment performed the scientist.
+
+# === CATEGORY 6: PHYSICAL IMPOSSIBILITIES (Size/Physics Violations) ===
+
+He put the mountain in his pocket.
+She lifted the entire city.
+They ate the building.
+I drank the ocean.
+She wore the skyscraper.
+He carried the planet.
+They folded the continent.
+I pocketed the universe.
+She swallowed the sun.
+He threw the moon.
+They caught the galaxy.
+I squeezed the earth.
+She pushed the mountain range.
+He pulled the entire forest.
+They shrank the volcano.
+I compressed the river.
+She packed the desert in a box.
+He mailed the castle.
+They stored the bridge in a drawer.
+I hid the stadium under my bed.
+
+# === CATEGORY 7: ANIMACY VIOLATIONS (Inanimate Subjects with Animate Actions) ===
+
+The rock cried loudly.
+The table ran quickly.
+The stone thought deeply.
+The chair dreamed vividly.
+The lamp hoped sincerely.
+The book worried constantly.
+The pen feared greatly.
+The door desired strongly.
+The window believed firmly.
+The wall remembered clearly.
+The floor forgot easily.
+The ceiling loved deeply.
+The carpet hated intensely.
+The curtain wished silently.
+The painting screamed loudly.
+The statue danced gracefully.
+The vase sang beautifully.
+The clock laughed heartily.
+The mirror cried sadly.
+The knife smiled warmly.
+
+# === CATEGORY 8: ABSTRACT SUBJECTS WITH PHYSICAL VERBS ===
+
+The idea ate the computer.
+The theory drove to happiness.
+The concept walked down the street.
+Democracy punched the wall.
+Freedom kicked the door.
+Justice threw a ball.
+Love drank some water.
+Hope cooked dinner.
+Fear painted the house.
+Anger built a bridge.
+Joy lifted weights.
+Sadness ran a marathon.
+Courage swam in the pool.
+Wisdom climbed the mountain.
+Knowledge rode a bicycle.
+Truth drove a car.
+Beauty wore a hat.
+Honesty ate breakfast.
+Patience drank coffee.
+Kindness walked the dog.
+
+# === CATEGORY 9: SENSORY MISMATCHES (Wrong Sense for Action) ===
+
+He listened to the color red.
+She tasted the sound of music.
+They smelled the feeling of joy.
+I heard the taste of chocolate.
+She saw the smell of roses.
+He touched the sound of thunder.
+They felt the color blue.
+I smelled the texture of silk.
+She tasted the brightness of light.
+He heard the softness of cotton.
+They saw the loudness of the concert.
+I listened to the temperature.
+She smelled the silence.
+He tasted the darkness.
+They touched the echo.
+I heard the flavor.
+She saw the aroma.
+He felt the melody.
+They tasted the shadow.
+I smelled the rhythm.
+
+# === CATEGORY 10: FAMOUS LINGUISTIC EXAMPLES ===
+
+Colorless green ideas sleep furiously.
+The gostak distims the doshes.
+Furiously sleep ideas green colorless.
+Ideas colorless green furiously sleep.
+Green sleep furiously ideas colorless.
+Sleep ideas green colorless furiously.
+
+# === CATEGORY 11: TEMPORAL IMPOSSIBILITIES ===
+
+Yesterday will happen tomorrow.
+Tomorrow happened yesterday.
+The future occurred in the past.
+He remembered things that haven't happened.
+She forgot events that will occur.
+They predicted yesterday.
+I foresaw the past.
+She recalled the future.
+He anticipated the history.
+They prophesied ancient times.
+
+# === CATEGORY 12: CAUSATION REVERSALS ===
+
+The ice melted the fire.
+The water burned the match.
+The light dimmed the darkness.
+The cold heated the stove.
+The silence made loud noises.
+The softness hardened the rock.
+The emptiness filled the container.
+The weakness strengthened the steel.
+The sickness healed the medicine.
+The ignorance educated the teacher.
+
+# === CATEGORY 13: PLAUSIBLE METAPHORICAL (Figurative but Acceptable) ===
+
+Time flies when you're having fun.
+She broke his heart.
+He lost his mind.
+They killed time at the cafe.
+I caught her eye across the room.
+She threw away the opportunity.
+He burned his bridges.
+They buried the hatchet.
+I spilled the beans about the surprise.
+She hit the nail on the head.
+He kicked the bucket.
+They let the cat out of the bag.
+I bit off more than I could chew.
+She jumped the gun.
+He pulled her leg.
+
+# === CATEGORY 14: BORDERLINE CASES (Unusual but Possible) ===
+
+The philosopher stone exists nowhere.
+Unicorns inhabit mythical forests.
+Dragons breathe fire in legends.
+Mermaids swim in fairy tales.
+Ghosts haunt old castles supposedly.
+Aliens visit earth in stories.
+Time travelers journey through centuries.
+Superheroes save cities in comics.
+Wizards cast spells in novels.
+Vampires avoid sunlight traditionally.

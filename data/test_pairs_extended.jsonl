@@ -1,0 +1,10 @@
+{"good": "I gave John the button.", "bad": "I gave John the wall.", "category": "ARG_STRUCTURE"}
+{"good": "She ate the apple.", "bad": "She ate the computer.", "category": "ARG_STRUCTURE"}
+{"good": "He put the key in his pocket.", "bad": "He put the house in his pocket.", "category": "ARG_STRUCTURE"}
+{"good": "The teacher bought the laptop.", "bad": "The laptop bought the teacher.", "category": "ARG_STRUCTURE"}
+{"good": "She read the book.", "bad": "She drank the book.", "category": "SELECTIONAL_PREFERENCE"}
+{"good": "He painted the wall.", "bad": "He painted the idea.", "category": "SELECTIONAL_PREFERENCE"}
+{"good": "The dog chased the cat.", "bad": "The dog chased the theory.", "category": "SELECTIONAL_PREFERENCE"}
+{"good": "She opened the door.", "bad": "She opened the democracy.", "category": "SELECTIONAL_PREFERENCE"}
+{"good": "He wore a hat.", "bad": "He wore a building.", "category": "SELECTIONAL_PREFERENCE"}
+{"good": "They discussed the problem.", "bad": "They discussed the rock.", "category": "SELECTIONAL_PREFERENCE"}

@@ -1,0 +1,50 @@
+{"good": "I gave John the button.", "bad": "I gave John the wall.", "category": "ARG_STRUCTURE", "phenomenon": "transferability"}
+{"good": "She ate the apple.", "bad": "She ate the computer.", "category": "ARG_STRUCTURE", "phenomenon": "edibility"}
+{"good": "He put the key in his pocket.", "bad": "He put the house in his pocket.", "category": "ARG_STRUCTURE", "phenomenon": "portability"}
+{"good": "The teacher bought the laptop.", "bad": "The laptop bought the teacher.", "category": "ARG_STRUCTURE", "phenomenon": "animacy_subject"}
+{"good": "She read the book.", "bad": "She drank the book.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "verb_object_match"}
+{"good": "He painted the wall.", "bad": "He painted the idea.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "concreteness"}
+{"good": "The dog chased the cat.", "bad": "The dog chased the theory.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_entity"}
+{"good": "She opened the door.", "bad": "She opened the democracy.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_action"}
+{"good": "He wore a hat.", "bad": "He wore a building.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "wearability"}
+{"good": "They discussed the problem.", "bad": "They discussed the rock.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "abstractness"}
+{"good": "The student wrote an essay.", "bad": "The essay wrote a student.", "category": "ARG_STRUCTURE", "phenomenon": "agent_patient_reversal"}
+{"good": "She drinks water every day.", "bad": "She drinks furniture every day.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "liquid_requirement"}
+{"good": "He climbed the mountain.", "bad": "He climbed the thought.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "climbability"}
+{"good": "The chef cooked the meal.", "bad": "The meal cooked the chef.", "category": "ARG_STRUCTURE", "phenomenon": "causative_direction"}
+{"good": "She answered the question.", "bad": "She answered the table.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "information_object"}
+{"good": "He broke the glass.", "bad": "He broke the hope.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_breakability"}
+{"good": "The baby cried loudly.", "bad": "The rock cried loudly.", "category": "ARG_STRUCTURE", "phenomenon": "animacy_subject_emotion"}
+{"good": "She picked up the pen.", "bad": "She picked up the sky.", "category": "ARG_STRUCTURE", "phenomenon": "manipulability"}
+{"good": "He listened to music.", "bad": "He listened to color.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "auditory_object"}
+{"good": "The artist drew a picture.", "bad": "The picture drew an artist.", "category": "ARG_STRUCTURE", "phenomenon": "creation_reversal"}
+{"good": "She kicked the ball.", "bad": "She kicked the air.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "solid_object"}
+{"good": "He smelled the flowers.", "bad": "He smelled the mathematics.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "olfactory_object"}
+{"good": "The teacher taught the lesson.", "bad": "The lesson taught the teacher.", "category": "ARG_STRUCTURE", "phenomenon": "instruction_direction"}
+{"good": "She folded the paper.", "bad": "She folded the water.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "foldability"}
+{"good": "He repaired the car.", "bad": "He repaired the democracy.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_repair"}
+{"good": "The child played with toys.", "bad": "The toys played with child.", "category": "ARG_STRUCTURE", "phenomenon": "agent_patient"}
+{"good": "She planted the seeds.", "bad": "She planted the ideas.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "literal_planting"}
+{"good": "He caught the fish.", "bad": "He caught the concept.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_catching"}
+{"good": "The wind blew the leaves.", "bad": "The leaves blew the wind.", "category": "ARG_STRUCTURE", "phenomenon": "force_direction"}
+{"good": "She closed the window.", "bad": "She closed the freedom.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_closure"}
+{"good": "He measured the distance.", "bad": "He measured the happiness.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "measurable_quantity"}
+{"good": "The scientist discovered a cure.", "bad": "The cure discovered a scientist.", "category": "ARG_STRUCTURE", "phenomenon": "discovery_direction"}
+{"good": "She poured the juice.", "bad": "She poured the solid.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "pourability"}
+{"good": "He drove the car.", "bad": "The car drove him.", "category": "ARG_STRUCTURE", "phenomenon": "vehicle_control"}
+{"good": "The sun melted the ice.", "bad": "The ice melted the sun.", "category": "ARG_STRUCTURE", "phenomenon": "thermal_causation"}
+{"good": "She washed the dishes.", "bad": "She washed the thoughts.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "washability"}
+{"good": "He solved the puzzle.", "bad": "The puzzle solved him.", "category": "ARG_STRUCTURE", "phenomenon": "problem_solver"}
+{"good": "The doctor examined the patient.", "bad": "The patient examined the doctor.", "category": "ARG_STRUCTURE", "phenomenon": "professional_role"}
+{"good": "She cut the bread.", "bad": "She cut the silence.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_cutting"}
+{"good": "He built the house.", "bad": "The house built him.", "category": "ARG_STRUCTURE", "phenomenon": "construction_agent"}
+{"good": "The rain wet the ground.", "bad": "The ground wet the rain.", "category": "ARG_STRUCTURE", "phenomenon": "wetting_direction"}
+{"good": "She memorized the poem.", "bad": "The poem memorized her.", "category": "ARG_STRUCTURE", "phenomenon": "cognitive_agent"}
+{"good": "He locked the door.", "bad": "He locked the freedom.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "lockability"}
+{"good": "The teacher graded the tests.", "bad": "The tests graded the teacher.", "category": "ARG_STRUCTURE", "phenomenon": "evaluation_direction"}
+{"good": "She combed her hair.", "bad": "She combed her thoughts.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "groomability"}
+{"good": "He lifted the box.", "bad": "He lifted the sadness.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "physical_lifting"}
+{"good": "The fire burned the wood.", "bad": "The wood burned the fire.", "category": "ARG_STRUCTURE", "phenomenon": "combustion_direction"}
+{"good": "She typed the letter.", "bad": "The letter typed her.", "category": "ARG_STRUCTURE", "phenomenon": "text_creation"}
+{"good": "He sharpened the knife.", "bad": "He sharpened the water.", "category": "SELECTIONAL_PREFERENCE", "phenomenon": "sharpenability"}
+{"good": "The farmer harvested the crops.", "bad": "The crops harvested the farmer.", "category": "ARG_STRUCTURE", "phenomenon": "harvesting_agent"}

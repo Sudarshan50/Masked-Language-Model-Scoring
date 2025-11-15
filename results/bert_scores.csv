@@ -1,0 +1,227 @@
+Rank,Sentence,Log Probability,Normalized Score,Word Count
+1,I wrote a letter to my friend.,-29.8181,-4.2597,7
+2,I listened to music on my phone.,-30.8580,-4.4083,7
+3,They let the cat out of the bag.,-35.5012,-4.4376,8
+4,I bit off more than I could chew.,-39.7649,-4.9706,8
+5,The children played in the park.,-30.4686,-5.0781,6
+6,The dolphin jumped out of the water.,-35.6523,-5.0932,7
+7,The sun rises in the east.,-30.9851,-5.1642,6
+8,She hit the nail on the head.,-38.1650,-5.4521,7
+9,He put the mountain in his pocket.,-38.4055,-5.4865,7
+10,The baby cried for her mother.,-33.2997,-5.5500,6
+11,I hid the stadium under my bed.,-39.3887,-5.6270,7
+12,She cooked dinner for the family.,-33.8569,-5.6428,6
+13,He cleaned the kitchen after dinner.,-33.8942,-5.6490,6
+14,The future occurred in the past.,-33.9215,-5.6536,6
+15,He listened to the color red.,-34.0974,-5.6829,6
+16,I heard the taste of chocolate.,-34.2425,-5.7071,6
+17,They stored the bridge in a drawer.,-40.0040,-5.7149,7
+18,She read a book before bed.,-34.3262,-5.7210,6
+19,The fish swam in the ocean.,-34.6002,-5.7667,6
+20,The students took notes in class.,-35.3646,-5.8941,6
+21,The cat sat on the mat.,-35.4103,-5.9017,6
+22,He touched the sound of thunder.,-35.4366,-5.9061,6
+23,They saw the loudness of the concert.,-41.5498,-5.9357,7
+24,I caught her eye across the room.,-41.7222,-5.9603,7
+25,He heard the softness of cotton.,-36.2173,-6.0362,6
+26,She packed the desert in a box.,-42.4765,-6.0681,7
+27,Birds fly in the sky.,-30.3543,-6.0709,5
+28,She threw away the opportunity.,-30.5223,-6.1045,5
+29,I spilled the beans about the surprise.,-42.8828,-6.1261,7
+30,She planted seeds in the garden.,-36.9378,-6.1563,6
+31,I bought groceries at the store.,-37.0811,-6.1802,6
+32,The lion roared in the jungle.,-37.0990,-6.1832,6
+33,They discussed the economic situation.,-30.9479,-6.1896,5
+34,She tasted the sound of music.,-37.3632,-6.2272,6
+35,He painted the living room walls.,-37.5191,-6.2532,6
+36,I smelled the texture of silk.,-37.7648,-6.2941,6
+37,She saw the smell of roses.,-38.0389,-6.3398,6
+38,The eagle soared through the sky.,-38.2740,-6.3790,6
+39,They walked along the beach.,-31.9567,-6.3913,5
+40,She lifted the entire city.,-32.6442,-6.5288,5
+41,Rain falls from the clouds.,-32.7651,-6.5530,5
+42,The artist painted a beautiful landscape.,-39.5605,-6.5934,6
+43,Time flies when you're having fun.,-39.8143,-6.6357,6
+44,The turtle moved slowly across the sand.,-46.4769,-6.6396,7
+45,Courage swam in the pool.,-33.3464,-6.6693,5
+46,The butterfly landed on the flower.,-40.0324,-6.6721,6
+47,She tasted the brightness of light.,-40.1364,-6.6894,6
+48,They killed time at the cafe.,-40.3222,-6.7204,6
+49,She forgot events that will occur.,-40.4520,-6.7420,6
+50,The concept walked down the street.,-40.7386,-6.7898,6
+51,I listened to the temperature.,-34.0957,-6.8191,5
+52,The doctor examined the patient.,-34.1071,-6.8214,5
+53,He remembered things that haven't happened.,-41.2677,-6.8779,6
+54,He drove to work yesterday.,-34.4625,-6.8925,5
+55,The teacher explained the lesson.,-34.9785,-6.9957,5
+56,The scientist conducted an important experiment.,-42.2839,-7.0473,6
+57,The rabbit hopped through the grass.,-42.3307,-7.0551,6
+58,The song sang the singer.,-35.3251,-7.0650,5
+59,She answered the phone quickly.,-35.8094,-7.1619,5
+60,They smelled the feeling of joy.,-43.0970,-7.1828,6
+61,She translated the ancient text.,-35.9965,-7.1993,5
+62,The book read the student.,-36.0698,-7.2140,5
+63,He carried the planet.,-28.9246,-7.2312,4
+64,The poem wrote the poet.,-36.1795,-7.2359,5
+65,He felt the melody.,-28.9488,-7.2372,4
+66,Wisdom climbed the mountain.,-29.2470,-7.3117,4
+67,She pushed the mountain range.,-36.5676,-7.3135,5
+68,She recalled the future.,-29.3630,-7.3407,4
+69,Truth drove a car.,-29.3735,-7.3434,4
+70,He pulled the entire forest.,-36.9539,-7.3908,5
+71,She swallowed the sun.,-29.6301,-7.4075,4
+72,The spider spun a web.,-37.0689,-7.4138,5
+73,The food ate the person.,-37.1193,-7.4239,5
+74,The horse galloped across the field.,-44.5918,-7.4320,6
+75,They felt the color blue.,-37.1621,-7.4324,5
+76,She solved the mathematical equation.,-37.1806,-7.4361,5
+77,He bought the sadness.,-29.7639,-7.4410,4
+78,He tasted the darkness.,-29.7722,-7.4431,4
+79,The story wrote the author.,-37.2424,-7.4485,5
+80,He ate the table.,-29.8904,-7.4726,4
+81,The chef prepared an elaborate meal.,-44.8408,-7.4735,6
+82,The idea ate the computer.,-37.4422,-7.4884,5
+83,The question answered the student.,-37.4954,-7.4991,5
+84,He diagnosed the medical condition.,-37.5880,-7.5176,5
+85,She washed the thought.,-30.1751,-7.5438,4
+86,He wrote the cloud.,-30.4010,-7.6002,4
+87,Mermaids swim in fairy tales.,-38.0468,-7.6094,5
+88,He pulled her leg.,-30.5525,-7.6381,4
+89,He threw the moon.,-30.6483,-7.6621,4
+90,The medicine cured the doctor.,-38.4765,-7.6953,5
+91,The water burned the match.,-38.4874,-7.6975,5
+92,They carried the mathematics.,-30.8098,-7.7025,4
+93,The dog barked at the mailman.,-46.2197,-7.7033,6
+94,I drank the ocean.,-30.8302,-7.7076,4
+95,The car drove the man.,-38.5489,-7.7098,5
+96,They ate the building.,-31.0179,-7.7545,4
+97,Beauty wore a hat.,-31.1648,-7.7912,4
+98,The symphony conducted the conductor.,-38.9758,-7.7952,5
+99,Yesterday will happen tomorrow.,-31.2177,-7.8044,4
+100,The wall gave John the button.,-46.8664,-7.8111,6
+101,He broke the freedom.,-31.2719,-7.8180,4
+102,I squeezed the earth.,-31.2888,-7.8222,4
+103,The musician composed a symphony.,-39.1336,-7.8267,5
+104,She broke his heart.,-31.3917,-7.8479,4
+105,Democracy punched the wall.,-31.5273,-7.8818,4
+106,Wizards cast spells in novels.,-39.5960,-7.9192,5
+107,She drove the happiness.,-31.8813,-7.9703,4
+108,She saw the aroma.,-31.9006,-7.9751,4
+109,I cleaned the idea.,-31.9773,-7.9943,4
+110,They negotiated the business contract.,-39.9906,-7.9981,5
+111,I heard the flavor.,-32.0029,-8.0007,4
+112,I opened the concept.,-32.0118,-8.0030,4
+113,Kindness walked the dog.,-32.0400,-8.0100,4
+114,The movie watched the audience.,-40.0996,-8.0199,5
+115,Justice threw a ball.,-32.1937,-8.0484,4
+116,They tasted the shadow.,-32.2021,-8.0505,4
+117,Anger built a bridge.,-32.2706,-8.0676,4
+118,She jumped the gun.,-32.3287,-8.0822,4
+119,I wore the water.,-32.3953,-8.0988,4
+120,She smelled the silence.,-32.4629,-8.1157,4
+121,The architect designed the building.,-40.6314,-8.1263,5
+122,They analyzed the historical data.,-40.6457,-8.1291,5
+123,She drank the chair.,-32.6334,-8.1584,4
+124,The snake slithered under the rock.,-49.0627,-8.1771,6
+125,She memorized the entire poem.,-40.9234,-8.1847,5
+126,The dance danced the dancers.,-40.9804,-8.1961,5
+127,They cooked the stone.,-32.8544,-8.2136,4
+128,The flowers bloomed in spring.,-41.1367,-8.2273,5
+129,I smelled the rhythm.,-32.9094,-8.2274,4
+130,Love drank some water.,-33.0026,-8.2506,4
+131,They sold the anger.,-33.0744,-8.2686,4
+132,They folded the continent.,-33.1912,-8.2978,4
+133,The lesson taught the teacher.,-41.5078,-8.3016,5
+134,She read the mountain.,-33.2157,-8.3039,4
+135,They sang the building.,-33.2279,-8.3070,4
+136,The ice melted the fire.,-41.6065,-8.3213,5
+137,I compressed the river.,-33.2911,-8.3228,4
+138,Freedom kicked the door.,-33.3134,-8.3283,4
+139,The painting painted the artist.,-41.7581,-8.3516,5
+140,The silence made loud noises.,-41.8613,-8.3723,5
+141,Fear painted the house.,-33.6330,-8.4082,4
+142,The sickness healed the medicine.,-42.0911,-8.4182,5
+143,The squirrel gathered nuts for winter.,-50.5406,-8.4234,6
+144,He lost his mind.,-33.7211,-8.4303,4
+145,She wore the skyscraper.,-33.9495,-8.4874,4
+146,She ate breakfast this morning.,-42.5525,-8.5105,5
+147,Knowledge rode a bicycle.,-34.0724,-8.5181,4
+148,He fixed the broken computer.,-42.6946,-8.5389,5
+149,The table ran quickly.,-34.2726,-8.5682,4
+150,The play acted the performers.,-42.8716,-8.5743,5
+151,The emptiness filled the container.,-42.8842,-8.5768,5
+152,Aliens visit earth in stories.,-42.8881,-8.5776,5
+153,I threw the wisdom.,-34.3185,-8.5796,4
+154,The house built the carpenter.,-43.0694,-8.6139,5
+155,He lifted the philosophy.,-34.5330,-8.6332,4
+156,He kicked the bucket.,-34.7047,-8.6762,4
+157,The bear hibernated in the cave.,-52.1008,-8.6835,6
+158,I painted the democracy.,-34.7998,-8.6999,4
+159,The picture drew the photographer.,-43.5364,-8.7073,5
+160,He repaired the antique clock.,-43.5407,-8.7081,5
+161,They caught the galaxy.,-34.9551,-8.7388,4
+162,Time travelers journey through centuries.,-43.7087,-8.7417,5
+163,They touched the echo.,-35.0004,-8.7501,4
+164,He anticipated the history.,-35.0802,-8.7700,4
+165,The theory drove to happiness.,-43.9414,-8.7883,5
+166,She closed the theory.,-35.2145,-8.8036,4
+167,The stone thought deeply.,-35.3183,-8.8296,4
+168,They debated philosophical questions.,-35.5368,-8.8842,4
+169,The meal cooked the chef.,-44.4329,-8.8866,5
+170,The rock cried loudly.,-35.5951,-8.8988,4
+171,The experiment performed the scientist.,-44.4950,-8.8990,5
+172,Dragons breathe fire in legends.,-44.9243,-8.9849,5
+173,Sadness ran a marathon.,-35.9650,-8.9912,4
+174,They fixed the justice.,-36.1578,-9.0394,4
+175,The frog croaked by the pond.,-54.3703,-9.0617,6
+176,The light dimmed the darkness.,-45.6370,-9.1274,5
+177,The ignorance educated the teacher.,-45.9172,-9.1834,5
+178,He drinks coffee every morning.,-46.1252,-9.2250,5
+179,The weakness strengthened the steel.,-46.2201,-9.2440,5
+180,The softness hardened the rock.,-46.6348,-9.3270,5
+181,The bee pollinated the flowers.,-47.2688,-9.4538,5
+182,The cold heated the stove.,-47.3885,-9.4777,5
+183,The pen feared greatly.,-38.4741,-9.6185,4
+184,The floor forgot easily.,-38.5565,-9.6391,4
+185,The knife smiled warmly.,-38.6154,-9.6538,4
+186,He mailed the castle.,-38.9073,-9.7268,4
+187,The curtain wished silently.,-39.0462,-9.7615,4
+188,The sculpture carved the sculptor.,-48.8453,-9.7691,5
+189,The door desired strongly.,-39.1610,-9.7902,4
+190,The mirror cried sadly.,-39.1622,-9.7906,4
+191,The owl hooted at night.,-49.0624,-9.8125,5
+192,The book worried constantly.,-39.3076,-9.8269,4
+193,The ceiling loved deeply.,-39.5137,-9.8784,4
+194,The philosopher stone exists nowhere.,-49.4203,-9.8841,5
+195,He burned his bridges.,-39.6021,-9.9005,4
+196,I pocketed the universe.,-39.6089,-9.9022,4
+197,The window believed firmly.,-39.6228,-9.9057,4
+198,Tomorrow happened yesterday.,-29.9649,-9.9883,3
+199,The wall remembered clearly.,-40.1440,-10.0360,4
+200,He constructed a wooden birdhouse.,-50.3079,-10.0616,5
+201,They buried the hatchet.,-40.6269,-10.1567,4
+202,The vase sang beautifully.,-40.8480,-10.2120,4
+203,The carpet hated intensely.,-41.5270,-10.3817,4
+204,The chair dreamed vividly.,-41.7230,-10.4307,4
+205,They predicted yesterday.,-31.6637,-10.5546,3
+206,The painting screamed loudly.,-42.8085,-10.7021,4
+207,The statue danced gracefully.,-42.9802,-10.7451,4
+208,I foresaw the past.,-43.0482,-10.7620,4
+209,Joy lifted weights.,-32.4809,-10.8270,3
+210,Superheroes save cities in comics.,-54.1737,-10.8347,5
+211,Vampires avoid sunlight traditionally.,-43.8166,-10.9541,4
+212,They shrank the volcano.,-44.4920,-11.1230,4
+213,Hope cooked dinner.,-33.6615,-11.2205,3
+214,The lamp hoped sincerely.,-45.1032,-11.2758,4
+215,The clock laughed heartily.,-45.4708,-11.3677,4
+216,Ghosts haunt old castles supposedly.,-57.8485,-11.5697,5
+217,Patience drank coffee.,-34.7113,-11.5704,3
+218,Honesty ate breakfast.,-34.9309,-11.6436,3
+219,Colorless green ideas sleep furiously.,-62.8235,-12.5647,5
+220,Green sleep furiously ideas colorless.,-63.1693,-12.6339,5
+221,Unicorns inhabit mythical forests.,-51.3584,-12.8396,4
+222,Ideas colorless green furiously sleep.,-65.8645,-13.1729,5
+223,Furiously sleep ideas green colorless.,-66.8455,-13.3691,5
+224,Sleep ideas green colorless furiously.,-68.1626,-13.6325,5
+225,They prophesied ancient times.,-54.9366,-13.7342,4
+226,The gostak distims the doshes.,-79.6848,-15.9370,5

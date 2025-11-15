@@ -1,0 +1,227 @@
+Sentence,Word Count,GPT-2 Log Prob,GPT-2 Normalized,GPT-2 Rank,BERT Log Prob,BERT Normalized,BERT Rank
+The cat sat on the mat.,6,-27.0150,-4.5025,25,-35.4103,-5.9017,21
+She ate breakfast this morning.,5,-22.2770,-4.4554,24,-42.5525,-8.5105,146
+He drove to work yesterday.,5,-25.2131,-5.0426,53,-34.4625,-6.8925,54
+The children played in the park.,6,-22.3637,-3.7273,8,-30.4686,-5.0781,5
+I bought groceries at the store.,6,-27.1435,-4.5239,27,-37.0811,-6.1802,31
+The sun rises in the east.,6,-21.5138,-3.5856,7,-30.9851,-5.1642,7
+Birds fly in the sky.,5,-23.5567,-4.7113,36,-30.3543,-6.0709,27
+She read a book before bed.,6,-24.0512,-4.0085,11,-34.3262,-5.7210,18
+He drinks coffee every morning.,5,-22.2642,-4.4528,23,-46.1252,-9.2250,178
+The teacher explained the lesson.,5,-25.1390,-5.0278,52,-34.9785,-6.9957,55
+They walked along the beach.,5,-20.5218,-4.1044,13,-31.9567,-6.3913,39
+Rain falls from the clouds.,5,-19.8378,-3.9676,10,-32.7651,-6.5530,41
+The dog barked at the mailman.,6,-31.3215,-5.2202,61,-46.2197,-7.7033,93
+She answered the phone quickly.,5,-21.2207,-4.2441,16,-35.8094,-7.1619,59
+He fixed the broken computer.,5,-25.8370,-5.1674,58,-42.6946,-8.5389,148
+The baby cried for her mother.,6,-26.0420,-4.3403,17,-33.2997,-5.5500,10
+I listened to music on my phone.,7,-24.7635,-3.5376,6,-30.8580,-4.4083,2
+The flowers bloomed in spring.,5,-28.0325,-5.6065,77,-41.1367,-8.2273,128
+She cooked dinner for the family.,6,-25.4148,-4.2358,15,-33.8569,-5.6428,12
+He painted the living room walls.,6,-28.4162,-4.7360,37,-37.5191,-6.2532,35
+The students took notes in class.,6,-26.0807,-4.3468,18,-35.3646,-5.8941,20
+I wrote a letter to my friend.,7,-23.7700,-3.3957,4,-29.8181,-4.2597,1
+The doctor examined the patient.,5,-21.0119,-4.2024,14,-34.1071,-6.8214,52
+She planted seeds in the garden.,6,-27.6460,-4.6077,31,-36.9378,-6.1563,30
+He cleaned the kitchen after dinner.,6,-28.0590,-4.6765,35,-33.8942,-5.6490,13
+The artist painted a beautiful landscape.,6,-32.0026,-5.3338,66,-39.5605,-6.5934,42
+They discussed the economic situation.,5,-22.6169,-4.5234,26,-30.9479,-6.1896,33
+The scientist conducted an important experiment.,6,-32.8170,-5.4695,72,-42.2839,-7.0473,56
+She memorized the entire poem.,5,-25.7795,-5.1559,57,-40.9234,-8.1847,125
+He repaired the antique clock.,5,-29.6367,-5.9273,97,-43.5407,-8.7081,160
+The chef prepared an elaborate meal.,6,-31.7336,-5.2889,64,-44.8408,-7.4735,81
+They debated philosophical questions.,4,-27.3114,-6.8278,141,-35.5368,-8.8842,168
+She solved the mathematical equation.,5,-26.0279,-5.2056,59,-37.1806,-7.4361,76
+He constructed a wooden birdhouse.,5,-31.7553,-6.3511,119,-50.3079,-10.0616,200
+The musician composed a symphony.,5,-33.2611,-6.6522,132,-39.1336,-7.8267,103
+They analyzed the historical data.,5,-23.7698,-4.7540,38,-40.6457,-8.1291,122
+She translated the ancient text.,5,-27.0547,-5.4109,68,-35.9965,-7.1993,61
+He diagnosed the medical condition.,5,-25.0238,-5.0048,50,-37.5880,-7.5176,84
+The architect designed the building.,5,-26.0334,-5.2067,60,-40.6314,-8.1263,121
+They negotiated the business contract.,5,-29.3705,-5.8741,92,-39.9906,-7.9981,110
+The horse galloped across the field.,6,-28.0353,-4.6725,34,-44.5918,-7.4320,74
+The fish swam in the ocean.,6,-27.5976,-4.5996,30,-34.6002,-5.7667,19
+The bee pollinated the flowers.,5,-29.5078,-5.9016,94,-47.2688,-9.4538,181
+The lion roared in the jungle.,6,-31.5641,-5.2607,63,-37.0990,-6.1832,32
+The owl hooted at night.,5,-35.9806,-7.1961,162,-49.0624,-9.8125,191
+The rabbit hopped through the grass.,6,-34.4447,-5.7408,88,-42.3307,-7.0551,57
+The squirrel gathered nuts for winter.,6,-47.7278,-7.9546,192,-50.5406,-8.4234,143
+The dolphin jumped out of the water.,7,-24.5677,-3.5097,5,-35.6523,-5.0932,6
+The snake slithered under the rock.,6,-32.6192,-5.4365,69,-49.0627,-8.1771,124
+The eagle soared through the sky.,6,-26.1108,-4.3518,19,-38.2740,-6.3790,38
+The frog croaked by the pond.,6,-40.2873,-6.7146,137,-54.3703,-9.0617,175
+The bear hibernated in the cave.,6,-29.6148,-4.9358,46,-52.1008,-8.6835,157
+The turtle moved slowly across the sand.,7,-34.8046,-4.9721,48,-46.4769,-6.6396,44
+The butterfly landed on the flower.,6,-32.8550,-5.4758,73,-40.0324,-6.6721,46
+The spider spun a web.,5,-30.5765,-6.1153,104,-37.0689,-7.4138,72
+She drank the chair.,4,-26.2616,-6.5654,130,-32.6334,-8.1584,123
+He ate the table.,4,-22.4448,-5.6112,78,-29.8904,-7.4726,80
+They cooked the stone.,4,-24.7704,-6.1926,109,-32.8544,-8.2136,127
+I wore the water.,4,-25.5943,-6.3986,123,-32.3953,-8.0988,119
+She read the mountain.,4,-24.2069,-6.0517,99,-33.2157,-8.3039,134
+He wrote the cloud.,4,-27.3414,-6.8353,143,-30.4010,-7.6002,86
+They sang the building.,4,-28.7623,-7.1906,161,-33.2279,-8.3070,135
+I painted the democracy.,4,-30.3521,-7.5880,178,-34.7998,-8.6999,158
+She drove the happiness.,4,-30.7811,-7.6953,185,-31.8813,-7.9703,107
+He bought the sadness.,4,-28.7247,-7.1812,159,-29.7639,-7.4410,77
+They sold the anger.,4,-26.0755,-6.5189,126,-33.0744,-8.2686,131
+I cleaned the idea.,4,-28.3198,-7.0800,156,-31.9773,-7.9943,109
+She washed the thought.,4,-28.1306,-7.0326,152,-30.1751,-7.5438,85
+He broke the freedom.,4,-24.9102,-6.2276,113,-31.2719,-7.8180,101
+They fixed the justice.,4,-30.5122,-7.6281,180,-36.1578,-9.0394,174
+I opened the concept.,4,-24.9124,-6.2281,114,-32.0118,-8.0030,112
+She closed the theory.,4,-25.5651,-6.3913,122,-35.2145,-8.8036,166
+He lifted the philosophy.,4,-29.3507,-7.3377,169,-34.5330,-8.6332,155
+They carried the mathematics.,4,-28.1365,-7.0341,153,-30.8098,-7.7025,92
+I threw the wisdom.,4,-27.8987,-6.9747,149,-34.3185,-8.5796,153
+The wall gave John the button.,6,-39.1604,-6.5267,127,-46.8664,-7.8111,100
+The book read the student.,5,-35.9243,-7.1849,160,-36.0698,-7.2140,62
+The food ate the person.,5,-29.2601,-5.8520,90,-37.1193,-7.4239,73
+The car drove the man.,5,-30.3363,-6.0673,100,-38.5489,-7.7098,95
+The house built the carpenter.,5,-37.3346,-7.4669,173,-43.0694,-8.6139,154
+The lesson taught the teacher.,5,-34.6627,-6.9325,145,-41.5078,-8.3016,133
+The question answered the student.,5,-33.7778,-6.7556,138,-37.4954,-7.4991,83
+The medicine cured the doctor.,5,-31.2021,-6.2404,115,-38.4765,-7.6953,90
+The painting painted the artist.,5,-35.6395,-7.1279,157,-41.7581,-8.3516,139
+The song sang the singer.,5,-35.7133,-7.1427,158,-35.3251,-7.0650,58
+The story wrote the author.,5,-32.6489,-6.5298,128,-37.2424,-7.4485,79
+The picture drew the photographer.,5,-36.1073,-7.2215,163,-43.5364,-8.7073,159
+The movie watched the audience.,5,-31.9976,-6.3995,124,-40.0996,-8.0199,114
+The play acted the performers.,5,-40.6918,-8.1384,198,-42.8716,-8.5743,150
+The dance danced the dancers.,5,-34.1678,-6.8336,142,-40.9804,-8.1961,126
+The meal cooked the chef.,5,-37.4296,-7.4859,175,-44.4329,-8.8866,169
+The poem wrote the poet.,5,-35.0964,-7.0193,151,-36.1795,-7.2359,64
+The sculpture carved the sculptor.,5,-40.5409,-8.1082,196,-48.8453,-9.7691,188
+The symphony conducted the conductor.,5,-36.3204,-7.2641,168,-38.9758,-7.7952,98
+The experiment performed the scientist.,5,-39.7158,-7.9432,191,-44.4950,-8.8990,171
+He put the mountain in his pocket.,7,-28.7252,-4.1036,12,-38.4055,-5.4865,9
+She lifted the entire city.,5,-31.3165,-6.2633,117,-32.6442,-6.5288,40
+They ate the building.,4,-23.5477,-5.8869,93,-31.0179,-7.7545,96
+I drank the ocean.,4,-24.8075,-6.2019,110,-30.8302,-7.7076,94
+She wore the skyscraper.,4,-29.9414,-7.4853,174,-33.9495,-8.4874,145
+He carried the planet.,4,-24.6746,-6.1686,106,-28.9246,-7.2312,63
+They folded the continent.,4,-27.8979,-6.9745,148,-33.1912,-8.2978,132
+I pocketed the universe.,4,-27.4033,-6.8508,144,-39.6089,-9.9022,196
+She swallowed the sun.,4,-24.2883,-6.0721,101,-29.6301,-7.4075,71
+He threw the moon.,4,-22.5103,-5.6276,80,-30.6483,-7.6621,89
+They caught the galaxy.,4,-24.6588,-6.1647,105,-34.9551,-8.7388,161
+I squeezed the earth.,4,-26.7174,-6.6794,134,-31.2888,-7.8222,102
+She pushed the mountain range.,5,-31.8197,-6.3639,121,-36.5676,-7.3135,67
+He pulled the entire forest.,5,-32.1391,-6.4278,125,-36.9539,-7.3908,70
+They shrank the volcano.,4,-28.9099,-7.2275,165,-44.4920,-11.1230,212
+I compressed the river.,4,-27.8262,-6.9566,147,-33.2911,-8.3228,137
+She packed the desert in a box.,7,-35.6460,-5.0923,54,-42.4765,-6.0681,26
+He mailed the castle.,4,-30.2942,-7.5736,177,-38.9073,-9.7268,186
+They stored the bridge in a drawer.,7,-33.8143,-4.8306,42,-40.0040,-5.7149,17
+I hid the stadium under my bed.,7,-34.5567,-4.9367,47,-39.3887,-5.6270,11
+The rock cried loudly.,4,-28.9363,-7.2341,166,-35.5951,-8.8988,170
+The table ran quickly.,4,-27.9715,-6.9929,150,-34.2726,-8.5682,149
+The stone thought deeply.,4,-31.7655,-7.9414,190,-35.3183,-8.8296,167
+The chair dreamed vividly.,4,-35.3105,-8.8276,209,-41.7230,-10.4307,204
+The lamp hoped sincerely.,4,-42.5634,-10.6408,221,-45.1032,-11.2758,214
+The book worried constantly.,4,-33.9969,-8.4992,201,-39.3076,-9.8269,192
+The pen feared greatly.,4,-34.6099,-8.6525,206,-38.4741,-9.6185,183
+The door desired strongly.,4,-36.2155,-9.0539,212,-39.1610,-9.7902,189
+The window believed firmly.,4,-37.0074,-9.2519,214,-39.6228,-9.9057,197
+The wall remembered clearly.,4,-31.9113,-7.9778,193,-40.1440,-10.0360,199
+The floor forgot easily.,4,-34.2597,-8.5649,202,-38.5565,-9.6391,184
+The ceiling loved deeply.,4,-36.7333,-9.1833,213,-39.5137,-9.8784,193
+The carpet hated intensely.,4,-36.0001,-9.0000,211,-41.5270,-10.3817,203
+The curtain wished silently.,4,-39.6021,-9.9005,216,-39.0462,-9.7615,187
+The painting screamed loudly.,4,-31.4403,-7.8601,189,-42.8085,-10.7021,206
+The statue danced gracefully.,4,-34.3363,-8.5841,203,-42.9802,-10.7451,207
+The vase sang beautifully.,4,-33.5918,-8.3980,200,-40.8480,-10.2120,202
+The clock laughed heartily.,4,-28.9538,-7.2384,167,-45.4708,-11.3677,215
+The mirror cried sadly.,4,-32.4018,-8.1004,195,-39.1622,-9.7906,190
+The knife smiled warmly.,4,-29.6387,-7.4097,171,-38.6154,-9.6538,185
+The idea ate the computer.,5,-34.7183,-6.9437,146,-37.4422,-7.4884,82
+The theory drove to happiness.,5,-38.2486,-7.6497,182,-43.9414,-8.7883,165
+The concept walked down the street.,6,-33.2892,-5.5482,76,-40.7386,-6.7898,50
+Democracy punched the wall.,4,-33.0347,-8.2587,199,-31.5273,-7.8818,105
+Freedom kicked the door.,4,-23.9631,-5.9908,98,-33.3134,-8.3283,138
+Justice threw a ball.,4,-25.4321,-6.3580,120,-32.1937,-8.0484,115
+Love drank some water.,4,-22.5245,-5.6311,81,-33.0026,-8.2506,130
+Hope cooked dinner.,3,-21.1861,-7.0620,154,-33.6615,-11.2205,213
+Fear painted the house.,4,-22.6894,-5.6723,83,-33.6330,-8.4082,141
+Anger built a bridge.,4,-27.0331,-6.7583,139,-32.2706,-8.0676,117
+Joy lifted weights.,3,-23.0428,-7.6809,183,-32.4809,-10.8270,209
+Sadness ran a marathon.,4,-29.8558,-7.4640,172,-35.9650,-8.9912,173
+Courage swam in the pool.,5,-33.3317,-6.6663,133,-33.3464,-6.6693,45
+Wisdom climbed the mountain.,4,-32.5258,-8.1314,197,-29.2470,-7.3117,66
+Knowledge rode a bicycle.,4,-35.0358,-8.7589,208,-34.0724,-8.5181,147
+Truth drove a car.,4,-24.3041,-6.0760,102,-29.3735,-7.3434,69
+Beauty wore a hat.,4,-26.7686,-6.6921,135,-31.1648,-7.7912,97
+Honesty ate breakfast.,3,-30.6249,-10.2083,218,-34.9309,-11.6436,218
+Patience drank coffee.,3,-30.3321,-10.1107,217,-34.7113,-11.5704,217
+Kindness walked the dog.,4,-28.8958,-7.2240,164,-32.0400,-8.0100,113
+He listened to the color red.,6,-30.7390,-5.1232,55,-34.0974,-5.6829,15
+She tasted the sound of music.,6,-28.9525,-4.8254,41,-37.3632,-6.2272,34
+They smelled the feeling of joy.,6,-33.6999,-5.6166,79,-43.0970,-7.1828,60
+I heard the taste of chocolate.,6,-28.6429,-4.7738,39,-34.2425,-5.7071,16
+She saw the smell of roses.,6,-26.4557,-4.4093,22,-38.0389,-6.3398,37
+He touched the sound of thunder.,6,-27.6921,-4.6153,33,-35.4366,-5.9061,22
+They felt the color blue.,5,-27.5208,-5.5042,74,-37.1621,-7.4324,75
+I smelled the texture of silk.,6,-32.7164,-5.4527,70,-37.7648,-6.2941,36
+She tasted the brightness of light.,6,-29.4132,-4.9022,45,-40.1364,-6.6894,47
+He heard the softness of cotton.,6,-34.1124,-5.6854,84,-36.2173,-6.0362,25
+They saw the loudness of the concert.,7,-33.4660,-4.7809,40,-41.5498,-5.9357,23
+I listened to the temperature.,5,-26.1470,-5.2294,62,-34.0957,-6.8191,51
+She smelled the silence.,4,-24.9832,-6.2458,116,-32.4629,-8.1157,120
+He tasted the darkness.,4,-22.8585,-5.7146,86,-29.7722,-7.4431,78
+They touched the echo.,4,-26.2979,-6.5745,131,-35.0004,-8.7501,163
+I heard the flavor.,4,-23.6345,-5.9086,95,-32.0029,-8.0007,111
+She saw the aroma.,4,-23.2789,-5.8197,89,-31.9006,-7.9751,108
+He felt the melody.,4,-24.7587,-6.1897,108,-28.9488,-7.2372,65
+They tasted the shadow.,4,-24.8125,-6.2031,111,-32.2021,-8.0505,116
+I smelled the rhythm.,4,-27.0647,-6.7662,140,-32.9094,-8.2274,129
+Colorless green ideas sleep furiously.,5,-52.5968,-10.5194,220,-62.8235,-12.5647,219
+The gostak distims the doshes.,5,-66.9669,-13.3934,225,-79.6848,-15.9370,226
+Furiously sleep ideas green colorless.,5,-67.1292,-13.4258,226,-66.8455,-13.3691,223
+Ideas colorless green furiously sleep.,5,-56.7752,-11.3550,223,-65.8645,-13.1729,222
+Green sleep furiously ideas colorless.,5,-59.4474,-11.8895,224,-63.1693,-12.6339,220
+Sleep ideas green colorless furiously.,5,-51.6451,-10.3290,219,-68.1626,-13.6325,224
+Yesterday will happen tomorrow.,4,-17.6259,-4.4065,21,-31.2177,-7.8044,99
+Tomorrow happened yesterday.,3,-15.4520,-5.1507,56,-29.9649,-9.9883,198
+The future occurred in the past.,6,-29.9740,-4.9957,49,-33.9215,-5.6536,14
+He remembered things that haven't happened.,6,-32.7605,-5.4601,71,-41.2677,-6.8779,53
+She forgot events that will occur.,6,-37.7140,-6.2857,118,-40.4520,-6.7420,49
+They predicted yesterday.,3,-22.5262,-7.5087,176,-31.6637,-10.5546,205
+I foresaw the past.,4,-22.8148,-5.7037,85,-43.0482,-10.7620,208
+She recalled the future.,4,-23.4549,-5.8637,91,-29.3630,-7.3407,68
+He anticipated the history.,4,-26.2252,-6.5563,129,-35.0802,-8.7700,164
+They prophesied ancient times.,4,-28.2949,-7.0737,155,-54.9366,-13.7342,225
+The ice melted the fire.,5,-30.9304,-6.1861,107,-41.6065,-8.3213,136
+The water burned the match.,5,-33.5107,-6.7021,136,-38.4874,-7.6975,91
+The light dimmed the darkness.,5,-28.6861,-5.7372,87,-45.6370,-9.1274,176
+The cold heated the stove.,5,-29.6215,-5.9243,96,-47.3885,-9.4777,182
+The silence made loud noises.,5,-30.5672,-6.1134,103,-41.8613,-8.3723,140
+The softness hardened the rock.,5,-38.0998,-7.6200,179,-46.6348,-9.3270,180
+The emptiness filled the container.,5,-31.1350,-6.2270,112,-42.8842,-8.5768,151
+The weakness strengthened the steel.,5,-39.0355,-7.8071,188,-46.2201,-9.2440,179
+The sickness healed the medicine.,5,-36.9175,-7.3835,170,-42.0911,-8.4182,142
+The ignorance educated the teacher.,5,-38.7695,-7.7539,187,-45.9172,-9.1834,177
+Time flies when you're having fun.,6,-29.3396,-4.8899,44,-39.8143,-6.6357,43
+She broke his heart.,4,-18.4579,-4.6145,32,-31.3917,-7.8479,104
+He lost his mind.,4,-15.5017,-3.8754,9,-33.7211,-8.4303,144
+They killed time at the cafe.,6,-32.0910,-5.3485,67,-40.3222,-6.7204,48
+I caught her eye across the room.,7,-30.6825,-4.3832,20,-41.7222,-5.9603,24
+She threw away the opportunity.,5,-25.1069,-5.0214,51,-30.5223,-6.1045,28
+He burned his bridges.,4,-22.5583,-5.6396,82,-39.6021,-9.9005,195
+They buried the hatchet.,4,-21.3227,-5.3307,65,-40.6269,-10.1567,201
+I spilled the beans about the surprise.,7,-31.9837,-4.5691,29,-42.8828,-6.1261,29
+She hit the nail on the head.,7,-15.5889,-2.2270,2,-38.1650,-5.4521,8
+He kicked the bucket.,4,-18.2107,-4.5527,28,-34.7047,-8.6762,156
+They let the cat out of the bag.,8,-20.1599,-2.5200,3,-35.5012,-4.4376,3
+I bit off more than I could chew.,8,-16.4908,-2.0614,1,-39.7649,-4.9706,4
+She jumped the gun.,4,-19.5498,-4.8874,43,-32.3287,-8.0822,118
+He pulled her leg.,4,-22.1878,-5.5469,75,-30.5525,-7.6381,88
+The philosopher stone exists nowhere.,5,-44.1870,-8.8374,210,-49.4203,-9.8841,194
+Unicorns inhabit mythical forests.,4,-38.4758,-9.6189,215,-51.3584,-12.8396,221
+Dragons breathe fire in legends.,5,-40.2496,-8.0499,194,-44.9243,-8.9849,172
+Mermaids swim in fairy tales.,5,-38.6695,-7.7339,186,-38.0468,-7.6094,87
+Ghosts haunt old castles supposedly.,5,-42.9806,-8.5961,204,-57.8485,-11.5697,216
+Aliens visit earth in stories.,5,-43.6142,-8.7228,207,-42.8881,-8.5776,152
+Time travelers journey through centuries.,5,-38.1674,-7.6335,181,-43.7087,-8.7417,162
+Superheroes save cities in comics.,5,-38.4519,-7.6904,184,-54.1737,-10.8347,210
+Wizards cast spells in novels.,5,-43.0310,-8.6062,205,-39.5960,-7.9192,106
+Vampires avoid sunlight traditionally.,4,-45.0748,-11.2687,222,-43.8166,-10.9541,211

@@ -1,0 +1,20 @@
+{
+  "model": "bert-base-uncased",
+  "type": "mlm",
+  "total": 50,
+  "correct": 42,
+  "accuracy": 0.84,
+  "categories": {
+    "ARG_STRUCTURE": {
+      "total": 24,
+      "correct": 19,
+      "accuracy": 0.7916666666666666
+    },
+    "SELECTIONAL_PREFERENCE": {
+      "total": 26,
+      "correct": 23,
+      "accuracy": 0.8846153846153846
+    }
+  },
+  "timestamp": "2025-11-15T15:51:08.649709"
+}
