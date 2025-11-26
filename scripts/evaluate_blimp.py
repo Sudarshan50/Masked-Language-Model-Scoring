@@ -12,7 +12,7 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from eval_plausibility.blimp_evaluator import BLIMPEvaluator, load_jsonl, save_results
+from eval_plausibility.blimp_evaluator import BLIMPEvaluator, load_jsonl, save_results, save_results_csv
 
 
 def main():
@@ -23,6 +23,7 @@ def main():
     parser.add_argument("--device", default="cpu", help="Device (cpu or cuda)")
     parser.add_argument("--batch-size", type=int, default=8, help="Batch size for MLM scoring")
     parser.add_argument("--output", help="Output JSON file for results (optional)")
+    parser.add_argument("--csv", help="Output CSV file for results (optional)")
     parser.add_argument("--no-progress", action="store_true", help="Disable progress bar")
     args = parser.parse_args()
 
@@ -44,6 +45,16 @@ def main():
     if args.output:
         save_results(results, args.output)
         print(f"\nResults saved to: {args.output}")
+    
+    if args.csv:
+        save_results_csv(results, args.csv, args.model)
+        print(f"CSV results saved to: {args.csv}")
+    
+    # Auto-generate CSV if output is specified but csv is not
+    if args.output and not args.csv:
+        csv_path = Path(args.output).with_suffix('.csv')
+        save_results_csv(results, str(csv_path), args.model)
+        print(f"CSV results saved to: {csv_path}")
 
 
 if __name__ == "__main__":

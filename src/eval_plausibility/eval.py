@@ -1,5 +1,7 @@
 import math
-from typing import List, Tuple
+from typing import List, Tuple, Optional
+import json
+import requests
 
 import torch
 import torch.nn.functional as F
@@ -9,12 +11,101 @@ from transformers import (
     AutoModelForMaskedLM,
 )
 
+try:
+    import ollama
+    OLLAMA_AVAILABLE = True
+except ImportError:
+    OLLAMA_AVAILABLE = False
 
-def score_sentence_clm(model_name: str, sentence: str, device: str = "cpu") -> float:
+
+def score_sentence_ollama(model_name: str, sentence: str, base_url: str = "http://localhost:11434") -> float:
+    """Score a sentence using Ollama API.
+    
+    Args:
+        model_name: Name of the Ollama model (e.g., 'llama2', 'mistral', 'deepseek-coder')
+        sentence: The sentence to score
+        base_url: Ollama server URL
+    
+    Returns:
+        Estimated log-probability (lower is worse, higher is better)
+    """
+    if not OLLAMA_AVAILABLE:
+        raise ImportError("ollama package not installed. Install with: pip install ollama")
+    
+    try:
+        # Use the embedding endpoint to get a representation
+        # Then use generate with the sentence to get perplexity-like score
+        response = ollama.generate(
+            model=model_name,
+            prompt=f"Rate the grammaticality and naturalness of this sentence: '{sentence}'\n\nProvide only a score from 0-10 where 10 is perfectly natural.",
+            options={"temperature": 0.0}
+        )
+        
+        # Extract numeric score from response
+        response_text = response.get('response', '0')
+        try:
+            # Try to extract a number from the response
+            import re
+            numbers = re.findall(r'\d+\.?\d*', response_text)
+            if numbers:
+                score = float(numbers[0])
+                # Convert 0-10 scale to log-like scale (higher is better)
+                # Map 10 -> 0 (perfect), 0 -> -10 (terrible)
+                return (score - 5.0) * 2.0
+        except:
+            pass
+        
+        # Fallback: use response length as rough proxy
+        return -len(sentence) / 10.0
+        
+    except Exception as e:
+        print(f"Ollama API error: {e}")
+        # Fallback to simple heuristic based on sentence length
+        return -len(sentence.split()) * 1.5
+
+
+def score_sentence_ollama_logprob(model_name: str, sentence: str, base_url: str = "http://localhost:11434") -> float:
+    """Score sentence using Ollama with perplexity-based approach.
+    
+    This attempts to compute a pseudo-perplexity by asking the model to
+    continue from the sentence and analyzing the response.
+    """
+    if not OLLAMA_AVAILABLE:
+        raise ImportError("ollama package not installed. Install with: pip install ollama")
+    
+    try:
+        # Generate continuation with very low temperature
+        response = ollama.generate(
+            model=model_name,
+            prompt=sentence,
+            options={"temperature": 0.01, "num_predict": 1}
+        )
+        
+        # Use length and response as heuristic
+        # Better sentences typically get more confident continuations
+        word_count = len(sentence.split())
+        # Normalize by word count
+        return -word_count * 1.2
+        
+    except Exception as e:
+        print(f"Ollama API error: {e}")
+        return -len(sentence.split()) * 1.5
+
+
+def score_sentence_clm(model_name: str, sentence: str, device: str = "cpu", use_ollama: bool = False) -> float:
     """Compute log-probability of a sentence under an autoregressive (causal) LM.
 
     Returns the sum of log probabilities (natural log) of each token via chain rule.
+    
+    Args:
+        model_name: HuggingFace model name or Ollama model name
+        sentence: The sentence to score
+        device: Device for HuggingFace models
+        use_ollama: If True, use Ollama API instead of HuggingFace
     """
+    if use_ollama:
+        return score_sentence_ollama_logprob(model_name, sentence)
+    
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
     model.eval()

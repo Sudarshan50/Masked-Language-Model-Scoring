@@ -1,0 +1,51 @@
+Pair ID,Category,Phenomenon,Good Sentence,Bad Sentence,Unknown Good,Unknown Bad,Unknown Result,llama3.1:8b Good,llama3.1:8b Bad,llama3.1:8b Result,qwen2.5:3b Good,qwen2.5:3b Bad,qwen2.5:3b Result,Unknown Good,Unknown Bad,Unknown Result
+1,ARG_STRUCTURE,transferability,I gave John the button.,I gave John the wall.,-28.88,-29.19,✓,2.00,-1.50,✓,2.50,-1.00,✓,-38.12,-35.52,✗
+2,ARG_STRUCTURE,edibility,She ate the apple.,She ate the computer.,-20.09,-24.47,✓,2.00,-1.50,✓,2.50,-2.50,✓,-27.88,-28.45,✓
+3,ARG_STRUCTURE,portability,He put the key in his pocket.,He put the house in his pocket.,-21.53,-27.79,✓,2.00,-1.50,✓,2.50,-2.50,✓,-35.41,-34.33,✗
+4,ARG_STRUCTURE,animacy_subject,The teacher bought the laptop.,The laptop bought the teacher.,-29.93,-40.48,✓,2.00,-1.50,✓,2.50,-2.50,✓,-35.21,-46.39,✓
+5,SELECTIONAL_PREFERENCE,verb_object_match,She read the book.,She drank the book.,-14.95,-23.90,✓,2.00,-1.50,✓,2.50,-2.50,✓,-26.30,-30.04,✓
+6,SELECTIONAL_PREFERENCE,concreteness,He painted the wall.,He painted the idea.,-21.14,-23.89,✓,2.00,1.50,✓,-1.00,-2.50,✓,-31.94,-32.07,✓
+7,SELECTIONAL_PREFERENCE,physical_entity,The dog chased the cat.,The dog chased the theory.,-25.90,-35.34,✓,2.00,-1.50,✓,2.50,-2.50,✓,-36.24,-42.34,✓
+8,SELECTIONAL_PREFERENCE,physical_action,She opened the door.,She opened the democracy.,-13.26,-28.41,✓,2.00,-1.50,✓,2.50,-2.50,✓,-24.81,-33.53,✓
+9,SELECTIONAL_PREFERENCE,wearability,He wore a hat.,He wore a building.,-19.39,-27.82,✓,2.00,-1.50,✓,2.50,-2.50,✓,-31.07,-31.11,✓
+10,SELECTIONAL_PREFERENCE,abstractness,They discussed the problem.,They discussed the rock.,-18.63,-25.17,✓,2.00,1.50,✓,2.50,1.50,✓,-28.78,-33.15,✓
+11,ARG_STRUCTURE,agent_patient_reversal,The student wrote an essay.,The essay wrote a student.,-25.77,-38.98,✓,2.00,-1.50,✓,2.50,-2.50,✓,-28.89,-39.65,✓
+12,SELECTIONAL_PREFERENCE,liquid_requirement,She drinks water every day.,She drinks furniture every day.,-22.71,-31.33,✓,2.00,-1.50,✓,2.50,-2.50,✓,-41.31,-45.82,✓
+13,SELECTIONAL_PREFERENCE,climbability,He climbed the mountain.,He climbed the thought.,-20.42,-28.10,✓,2.00,-1.50,✓,2.50,-2.50,✓,-29.81,-31.66,✓
+14,ARG_STRUCTURE,causative_direction,The chef cooked the meal.,The meal cooked the chef.,-28.80,-37.43,✓,2.00,-1.50,✓,2.50,-2.50,✓,-37.12,-44.43,✓
+15,SELECTIONAL_PREFERENCE,information_object,She answered the question.,She answered the table.,-15.02,-21.80,✓,2.00,-1.50,✓,2.50,-2.50,✓,-26.21,-29.85,✓
+16,SELECTIONAL_PREFERENCE,physical_breakability,He broke the glass.,He broke the hope.,-17.38,-23.96,✓,2.00,1.50,✓,2.50,-2.50,✓,-30.97,-29.16,✗
+17,ARG_STRUCTURE,animacy_subject_emotion,The baby cried loudly.,The rock cried loudly.,-24.20,-28.94,✓,2.00,-1.50,✓,2.50,-1.50,✓,-36.92,-35.60,✗
+18,ARG_STRUCTURE,manipulability,She picked up the pen.,She picked up the sky.,-20.09,-23.36,✓,2.00,-1.50,✓,2.50,-2.50,✓,-23.84,-23.69,✗
+19,SELECTIONAL_PREFERENCE,auditory_object,He listened to music.,He listened to color.,-19.81,-28.41,✓,2.00,-1.50,✓,2.50,-2.50,✓,-25.43,-31.40,✓
+20,ARG_STRUCTURE,creation_reversal,The artist drew a picture.,The picture drew an artist.,-27.18,-34.68,✓,2.00,-1.50,✓,2.50,-2.50,✓,-37.30,-40.70,✓
+21,SELECTIONAL_PREFERENCE,solid_object,She kicked the ball.,She kicked the air.,-19.40,-20.13,✓,2.00,2.00,✗,2.50,2.50,✗,-28.57,-32.05,✓
+22,SELECTIONAL_PREFERENCE,olfactory_object,He smelled the flowers.,He smelled the mathematics.,-22.46,-30.63,✓,2.00,-1.50,✓,2.50,-2.50,✓,-27.91,-32.65,✓
+23,ARG_STRUCTURE,instruction_direction,The teacher taught the lesson.,The lesson taught the teacher.,-25.54,-34.66,✓,2.00,1.50,✓,2.50,-2.50,✓,-35.45,-41.51,✓
+24,SELECTIONAL_PREFERENCE,foldability,She folded the paper.,She folded the water.,-19.76,-27.01,✓,2.00,1.50,✓,2.50,-2.50,✓,-33.67,-33.77,✓
+25,SELECTIONAL_PREFERENCE,physical_repair,He repaired the car.,He repaired the democracy.,-18.88,-29.13,✓,2.00,1.50,✓,2.50,-2.50,✓,-30.47,-36.17,✓
+26,ARG_STRUCTURE,agent_patient,The child played with toys.,The toys played with child.,-24.57,-33.37,✓,2.00,-1.50,✓,2.50,-2.50,✓,-39.92,-37.65,✗
+27,SELECTIONAL_PREFERENCE,literal_planting,She planted the seeds.,She planted the ideas.,-18.83,-28.32,✓,2.00,1.50,✓,2.50,-2.50,✓,-30.36,-32.95,✓
+28,SELECTIONAL_PREFERENCE,physical_catching,He caught the fish.,He caught the concept.,-20.32,-24.87,✓,2.00,1.50,✓,2.50,-1.00,✓,-28.12,-32.42,✓
+29,ARG_STRUCTURE,force_direction,The wind blew the leaves.,The leaves blew the wind.,-25.46,-29.11,✓,2.00,-1.50,✓,2.50,-2.50,✓,-36.02,-38.75,✓
+30,SELECTIONAL_PREFERENCE,physical_closure,She closed the window.,She closed the freedom.,-17.61,-28.36,✓,2.00,-1.50,✓,2.50,-2.50,✓,-28.80,-34.60,✓
+31,SELECTIONAL_PREFERENCE,measurable_quantity,He measured the distance.,He measured the happiness.,-20.47,-28.61,✓,2.00,-1.50,✓,2.50,-2.50,✓,-34.28,-33.21,✗
+32,ARG_STRUCTURE,discovery_direction,The scientist discovered a cure.,The cure discovered a scientist.,-29.52,-42.41,✓,2.00,-1.50,✓,2.50,-2.50,✓,-38.16,-43.82,✓
+33,SELECTIONAL_PREFERENCE,pourability,She poured the juice.,She poured the solid.,-23.20,-29.43,✓,2.00,1.50,✓,2.50,-2.50,✓,-31.43,-33.05,✓
+34,ARG_STRUCTURE,vehicle_control,He drove the car.,The car drove him.,-16.75,-27.83,✓,2.00,-1.50,✓,2.50,-2.50,✓,-27.15,-32.62,✓
+35,ARG_STRUCTURE,thermal_causation,The sun melted the ice.,The ice melted the sun.,-27.20,-28.83,✓,2.00,-1.50,✓,-2.50,-2.50,✗,-41.10,-41.84,✓
+36,SELECTIONAL_PREFERENCE,washability,She washed the dishes.,She washed the thoughts.,-18.80,-29.03,✓,2.00,-1.50,✓,2.50,-2.50,✓,-33.21,-30.17,✗
+37,ARG_STRUCTURE,problem_solver,He solved the puzzle.,The puzzle solved him.,-17.19,-27.78,✓,2.00,-1.50,✓,2.50,-2.50,✓,-30.40,-34.90,✓
+38,ARG_STRUCTURE,professional_role,The doctor examined the patient.,The patient examined the doctor.,-21.01,-28.55,✓,2.00,-1.50,✓,2.50,-2.50,✓,-34.11,-38.97,✓
+39,SELECTIONAL_PREFERENCE,physical_cutting,She cut the bread.,She cut the silence.,-20.73,-21.36,✓,2.00,2.00,✗,2.50,-1.00,✓,-30.79,-32.14,✓
+40,ARG_STRUCTURE,construction_agent,He built the house.,The house built him.,-18.51,-29.27,✓,2.00,1.50,✓,2.50,-2.50,✓,-29.50,-36.55,✓
+41,ARG_STRUCTURE,wetting_direction,The rain wet the ground.,The ground wet the rain.,-26.35,-31.69,✓,1.50,-1.50,✓,2.50,-2.50,✓,-37.95,-43.02,✓
+42,ARG_STRUCTURE,cognitive_agent,She memorized the poem.,The poem memorized her.,-21.86,-33.81,✓,2.00,-1.50,✓,2.50,-2.50,✓,-37.77,-47.15,✓
+43,SELECTIONAL_PREFERENCE,lockability,He locked the door.,He locked the freedom.,-14.95,-27.64,✓,2.00,-1.50,✓,2.50,-2.50,✓,-31.14,-37.58,✓
+44,ARG_STRUCTURE,evaluation_direction,The teacher graded the tests.,The tests graded the teacher.,-30.76,-36.87,✓,2.00,-1.50,✓,2.50,-2.50,✓,-39.50,-43.76,✓
+45,SELECTIONAL_PREFERENCE,groomability,She combed her hair.,She combed her thoughts.,-17.90,-23.14,✓,2.00,-1.50,✓,2.50,-2.50,✓,-32.82,-36.38,✓
+46,SELECTIONAL_PREFERENCE,physical_lifting,He lifted the box.,He lifted the sadness.,-21.27,-28.34,✓,2.00,1.50,✓,2.50,-2.50,✓,-30.19,-32.19,✓
+47,ARG_STRUCTURE,combustion_direction,The fire burned the wood.,The wood burned the fire.,-26.75,-26.80,✓,2.00,-1.50,✓,2.50,-2.50,✓,-39.07,-39.18,✓
+48,ARG_STRUCTURE,text_creation,She typed the letter.,The letter typed her.,-21.54,-32.36,✓,2.00,-1.50,✓,2.50,-2.50,✓,-30.55,-35.48,✓
+49,SELECTIONAL_PREFERENCE,sharpenability,He sharpened the knife.,He sharpened the water.,-17.63,-24.17,✓,2.00,-1.50,✓,2.50,-2.50,✓,-32.13,-34.12,✓
+50,ARG_STRUCTURE,harvesting_agent,The farmer harvested the crops.,The crops harvested the farmer.,-28.98,-36.49,✓,2.00,-1.50,✓,2.50,-2.50,✓,-41.01,-47.21,✓

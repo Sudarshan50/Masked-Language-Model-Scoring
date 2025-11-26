@@ -1,20 +1,20 @@
 {
+  "model": "qwen2.5:3b",
   "total": 50,
-  "correct": 50,
-  "accuracy": 1.0,
+  "correct": 48,
+  "accuracy": 0.96,
   "categories": {
     "ARG_STRUCTURE": {
       "total": 24,
-      "correct": 24,
-      "accuracy": 1.0
+      "correct": 23,
+      "accuracy": 0.9583333333333334
     },
     "SELECTIONAL_PREFERENCE": {
       "total": 26,
-      "correct": 26,
-      "accuracy": 1.0
+      "correct": 25,
+      "accuracy": 0.9615384615384616
     }
   },
-  "errors": [],
   "pair_details": [
     {
       "pair_id": 1,
@@ -22,9 +22,9 @@
       "phenomenon": "transferability",
       "good_sentence": "I gave John the button.",
       "bad_sentence": "I gave John the wall.",
-      "good_score": -28.88365364074707,
-      "bad_score": -29.187679290771484,
-      "score_difference": 0.30402565002441406,
+      "good_score": 2.5,
+      "bad_score": -1.0,
+      "score_difference": 3.5,
       "correct": true
     },
     {
@@ -33,9 +33,9 @@
       "phenomenon": "edibility",
       "good_sentence": "She ate the apple.",
       "bad_sentence": "She ate the computer.",
-      "good_score": -20.086986541748047,
-      "bad_score": -24.466461181640625,
-      "score_difference": 4.379474639892578,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -44,9 +44,9 @@
       "phenomenon": "portability",
       "good_sentence": "He put the key in his pocket.",
       "bad_sentence": "He put the house in his pocket.",
-      "good_score": -21.53298568725586,
-      "bad_score": -27.788780212402344,
-      "score_difference": 6.255794525146484,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -55,9 +55,9 @@
       "phenomenon": "animacy_subject",
       "good_sentence": "The teacher bought the laptop.",
       "bad_sentence": "The laptop bought the teacher.",
-      "good_score": -29.926143646240234,
-      "bad_score": -40.48078536987305,
-      "score_difference": 10.554641723632812,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -66,9 +66,9 @@
       "phenomenon": "verb_object_match",
       "good_sentence": "She read the book.",
       "bad_sentence": "She drank the book.",
-      "good_score": -14.953174591064453,
-      "bad_score": -23.895627975463867,
-      "score_difference": 8.942453384399414,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -77,9 +77,9 @@
       "phenomenon": "concreteness",
       "good_sentence": "He painted the wall.",
       "bad_sentence": "He painted the idea.",
-      "good_score": -21.137359619140625,
-      "bad_score": -23.8909969329834,
-      "score_difference": 2.7536373138427734,
+      "good_score": -1.0,
+      "bad_score": -2.5,
+      "score_difference": 1.5,
       "correct": true
     },
     {
@@ -88,9 +88,9 @@
       "phenomenon": "physical_entity",
       "good_sentence": "The dog chased the cat.",
       "bad_sentence": "The dog chased the theory.",
-      "good_score": -25.903766632080078,
-      "bad_score": -35.335533142089844,
-      "score_difference": 9.431766510009766,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -99,9 +99,9 @@
       "phenomenon": "physical_action",
       "good_sentence": "She opened the door.",
       "bad_sentence": "She opened the democracy.",
-      "good_score": -13.255033493041992,
-      "bad_score": -28.412548065185547,
-      "score_difference": 15.157514572143555,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -110,9 +110,9 @@
       "phenomenon": "wearability",
       "good_sentence": "He wore a hat.",
       "bad_sentence": "He wore a building.",
-      "good_score": -19.394596099853516,
-      "bad_score": -27.823711395263672,
-      "score_difference": 8.429115295410156,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -121,9 +121,9 @@
       "phenomenon": "abstractness",
       "good_sentence": "They discussed the problem.",
       "bad_sentence": "They discussed the rock.",
-      "good_score": -18.6295108795166,
-      "bad_score": -25.170175552368164,
-      "score_difference": 6.5406646728515625,
+      "good_score": 2.5,
+      "bad_score": 1.5,
+      "score_difference": 1.0,
       "correct": true
     },
     {
@@ -132,9 +132,9 @@
       "phenomenon": "agent_patient_reversal",
       "good_sentence": "The student wrote an essay.",
       "bad_sentence": "The essay wrote a student.",
-      "good_score": -25.77227210998535,
-      "bad_score": -38.97542953491211,
-      "score_difference": 13.203157424926758,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -143,9 +143,9 @@
       "phenomenon": "liquid_requirement",
       "good_sentence": "She drinks water every day.",
       "bad_sentence": "She drinks furniture every day.",
-      "good_score": -22.708194732666016,
-      "bad_score": -31.325496673583984,
-      "score_difference": 8.617301940917969,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -154,9 +154,9 @@
       "phenomenon": "climbability",
       "good_sentence": "He climbed the mountain.",
       "bad_sentence": "He climbed the thought.",
-      "good_score": -20.42369842529297,
-      "bad_score": -28.100488662719727,
-      "score_difference": 7.676790237426758,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -165,9 +165,9 @@
       "phenomenon": "causative_direction",
       "good_sentence": "The chef cooked the meal.",
       "bad_sentence": "The meal cooked the chef.",
-      "good_score": -28.799726486206055,
-      "bad_score": -37.4295768737793,
-      "score_difference": 8.629850387573242,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -176,9 +176,9 @@
       "phenomenon": "information_object",
       "good_sentence": "She answered the question.",
       "bad_sentence": "She answered the table.",
-      "good_score": -15.018835067749023,
-      "bad_score": -21.796405792236328,
-      "score_difference": 6.777570724487305,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -187,9 +187,9 @@
       "phenomenon": "physical_breakability",
       "good_sentence": "He broke the glass.",
       "bad_sentence": "He broke the hope.",
-      "good_score": -17.384422302246094,
-      "bad_score": -23.95774269104004,
-      "score_difference": 6.573320388793945,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -198,9 +198,9 @@
       "phenomenon": "animacy_subject_emotion",
       "good_sentence": "The baby cried loudly.",
       "bad_sentence": "The rock cried loudly.",
-      "good_score": -24.204418182373047,
-      "bad_score": -28.936323165893555,
-      "score_difference": 4.731904983520508,
+      "good_score": 2.5,
+      "bad_score": -1.5,
+      "score_difference": 4.0,
       "correct": true
     },
     {
@@ -209,9 +209,9 @@
       "phenomenon": "manipulability",
       "good_sentence": "She picked up the pen.",
       "bad_sentence": "She picked up the sky.",
-      "good_score": -20.086172103881836,
-      "bad_score": -23.356502532958984,
-      "score_difference": 3.2703304290771484,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -220,9 +220,9 @@
       "phenomenon": "auditory_object",
       "good_sentence": "He listened to music.",
       "bad_sentence": "He listened to color.",
-      "good_score": -19.809812545776367,
-      "bad_score": -28.41030502319336,
-      "score_difference": 8.600492477416992,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -231,9 +231,9 @@
       "phenomenon": "creation_reversal",
       "good_sentence": "The artist drew a picture.",
       "bad_sentence": "The picture drew an artist.",
-      "good_score": -27.183656692504883,
-      "bad_score": -34.678466796875,
-      "score_difference": 7.494810104370117,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -242,10 +242,10 @@
       "phenomenon": "solid_object",
       "good_sentence": "She kicked the ball.",
       "bad_sentence": "She kicked the air.",
-      "good_score": -19.40323829650879,
-      "bad_score": -20.129600524902344,
-      "score_difference": 0.7263622283935547,
-      "correct": true
+      "good_score": 2.5,
+      "bad_score": 2.5,
+      "score_difference": 0.0,
+      "correct": false
     },
     {
       "pair_id": 22,
@@ -253,9 +253,9 @@
       "phenomenon": "olfactory_object",
       "good_sentence": "He smelled the flowers.",
       "bad_sentence": "He smelled the mathematics.",
-      "good_score": -22.455989837646484,
-      "bad_score": -30.630409240722656,
-      "score_difference": 8.174419403076172,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -264,9 +264,9 @@
       "phenomenon": "instruction_direction",
       "good_sentence": "The teacher taught the lesson.",
       "bad_sentence": "The lesson taught the teacher.",
-      "good_score": -25.537872314453125,
-      "bad_score": -34.66270065307617,
-      "score_difference": 9.124828338623047,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -275,9 +275,9 @@
       "phenomenon": "foldability",
       "good_sentence": "She folded the paper.",
       "bad_sentence": "She folded the water.",
-      "good_score": -19.75994300842285,
-      "bad_score": -27.005321502685547,
-      "score_difference": 7.245378494262695,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -286,9 +286,9 @@
       "phenomenon": "physical_repair",
       "good_sentence": "He repaired the car.",
       "bad_sentence": "He repaired the democracy.",
-      "good_score": -18.884798049926758,
-      "bad_score": -29.125036239624023,
-      "score_difference": 10.240238189697266,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -297,9 +297,9 @@
       "phenomenon": "agent_patient",
       "good_sentence": "The child played with toys.",
       "bad_sentence": "The toys played with child.",
-      "good_score": -24.573501586914062,
-      "bad_score": -33.370704650878906,
-      "score_difference": 8.797203063964844,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -308,9 +308,9 @@
       "phenomenon": "literal_planting",
       "good_sentence": "She planted the seeds.",
       "bad_sentence": "She planted the ideas.",
-      "good_score": -18.83489990234375,
-      "bad_score": -28.323076248168945,
-      "score_difference": 9.488176345825195,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -319,9 +319,9 @@
       "phenomenon": "physical_catching",
       "good_sentence": "He caught the fish.",
       "bad_sentence": "He caught the concept.",
-      "good_score": -20.31609535217285,
-      "bad_score": -24.872901916503906,
-      "score_difference": 4.556806564331055,
+      "good_score": 2.5,
+      "bad_score": -1.0,
+      "score_difference": 3.5,
       "correct": true
     },
     {
@@ -330,9 +330,9 @@
       "phenomenon": "force_direction",
       "good_sentence": "The wind blew the leaves.",
       "bad_sentence": "The leaves blew the wind.",
-      "good_score": -25.455284118652344,
-      "bad_score": -29.109769821166992,
-      "score_difference": 3.6544857025146484,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -341,9 +341,9 @@
       "phenomenon": "physical_closure",
       "good_sentence": "She closed the window.",
       "bad_sentence": "She closed the freedom.",
-      "good_score": -17.607990264892578,
-      "bad_score": -28.35584259033203,
-      "score_difference": 10.747852325439453,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -352,9 +352,9 @@
       "phenomenon": "measurable_quantity",
       "good_sentence": "He measured the distance.",
       "bad_sentence": "He measured the happiness.",
-      "good_score": -20.473114013671875,
-      "bad_score": -28.608619689941406,
-      "score_difference": 8.135505676269531,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -363,9 +363,9 @@
       "phenomenon": "discovery_direction",
       "good_sentence": "The scientist discovered a cure.",
       "bad_sentence": "The cure discovered a scientist.",
-      "good_score": -29.52145004272461,
-      "bad_score": -42.40742874145508,
-      "score_difference": 12.885978698730469,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -374,9 +374,9 @@
       "phenomenon": "pourability",
       "good_sentence": "She poured the juice.",
       "bad_sentence": "She poured the solid.",
-      "good_score": -23.203083038330078,
-      "bad_score": -29.434112548828125,
-      "score_difference": 6.231029510498047,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -385,9 +385,9 @@
       "phenomenon": "vehicle_control",
       "good_sentence": "He drove the car.",
       "bad_sentence": "The car drove him.",
-      "good_score": -16.751052856445312,
-      "bad_score": -27.833009719848633,
-      "score_difference": 11.08195686340332,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -396,10 +396,10 @@
       "phenomenon": "thermal_causation",
       "good_sentence": "The sun melted the ice.",
       "bad_sentence": "The ice melted the sun.",
-      "good_score": -27.199750900268555,
-      "bad_score": -28.828777313232422,
-      "score_difference": 1.6290264129638672,
-      "correct": true
+      "good_score": -2.5,
+      "bad_score": -2.5,
+      "score_difference": 0.0,
+      "correct": false
     },
     {
       "pair_id": 36,
@@ -407,9 +407,9 @@
       "phenomenon": "washability",
       "good_sentence": "She washed the dishes.",
       "bad_sentence": "She washed the thoughts.",
-      "good_score": -18.802900314331055,
-      "bad_score": -29.03120231628418,
-      "score_difference": 10.228302001953125,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -418,9 +418,9 @@
       "phenomenon": "problem_solver",
       "good_sentence": "He solved the puzzle.",
       "bad_sentence": "The puzzle solved him.",
-      "good_score": -17.189132690429688,
-      "bad_score": -27.775136947631836,
-      "score_difference": 10.586004257202148,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -429,9 +429,9 @@
       "phenomenon": "professional_role",
       "good_sentence": "The doctor examined the patient.",
       "bad_sentence": "The patient examined the doctor.",
-      "good_score": -21.011878967285156,
-      "bad_score": -28.552066802978516,
-      "score_difference": 7.540187835693359,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -440,9 +440,9 @@
       "phenomenon": "physical_cutting",
       "good_sentence": "She cut the bread.",
       "bad_sentence": "She cut the silence.",
-      "good_score": -20.728124618530273,
-      "bad_score": -21.359045028686523,
-      "score_difference": 0.63092041015625,
+      "good_score": 2.5,
+      "bad_score": -1.0,
+      "score_difference": 3.5,
       "correct": true
     },
     {
@@ -451,9 +451,9 @@
       "phenomenon": "construction_agent",
       "good_sentence": "He built the house.",
       "bad_sentence": "The house built him.",
-      "good_score": -18.505889892578125,
-      "bad_score": -29.271059036254883,
-      "score_difference": 10.765169143676758,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -462,9 +462,9 @@
       "phenomenon": "wetting_direction",
       "good_sentence": "The rain wet the ground.",
       "bad_sentence": "The ground wet the rain.",
-      "good_score": -26.353849411010742,
-      "bad_score": -31.693330764770508,
-      "score_difference": 5.339481353759766,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -473,9 +473,9 @@
       "phenomenon": "cognitive_agent",
       "good_sentence": "She memorized the poem.",
       "bad_sentence": "The poem memorized her.",
-      "good_score": -21.86405372619629,
-      "bad_score": -33.81455612182617,
-      "score_difference": 11.950502395629883,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -484,9 +484,9 @@
       "phenomenon": "lockability",
       "good_sentence": "He locked the door.",
       "bad_sentence": "He locked the freedom.",
-      "good_score": -14.948036193847656,
-      "bad_score": -27.639610290527344,
-      "score_difference": 12.691574096679688,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -495,9 +495,9 @@
       "phenomenon": "evaluation_direction",
       "good_sentence": "The teacher graded the tests.",
       "bad_sentence": "The tests graded the teacher.",
-      "good_score": -30.756980895996094,
-      "bad_score": -36.868988037109375,
-      "score_difference": 6.112007141113281,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -506,9 +506,9 @@
       "phenomenon": "groomability",
       "good_sentence": "She combed her hair.",
       "bad_sentence": "She combed her thoughts.",
-      "good_score": -17.899852752685547,
-      "bad_score": -23.13927459716797,
-      "score_difference": 5.239421844482422,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -517,9 +517,9 @@
       "phenomenon": "physical_lifting",
       "good_sentence": "He lifted the box.",
       "bad_sentence": "He lifted the sadness.",
-      "good_score": -21.266115188598633,
-      "bad_score": -28.338586807250977,
-      "score_difference": 7.072471618652344,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -528,9 +528,9 @@
       "phenomenon": "combustion_direction",
       "good_sentence": "The fire burned the wood.",
       "bad_sentence": "The wood burned the fire.",
-      "good_score": -26.750459671020508,
-      "bad_score": -26.79960823059082,
-      "score_difference": 0.0491485595703125,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -539,9 +539,9 @@
       "phenomenon": "text_creation",
       "good_sentence": "She typed the letter.",
       "bad_sentence": "The letter typed her.",
-      "good_score": -21.536611557006836,
-      "bad_score": -32.364200592041016,
-      "score_difference": 10.82758903503418,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -550,9 +550,9 @@
       "phenomenon": "sharpenability",
       "good_sentence": "He sharpened the knife.",
       "bad_sentence": "He sharpened the water.",
-      "good_score": -17.631290435791016,
-      "bad_score": -24.169231414794922,
-      "score_difference": 6.537940979003906,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     },
     {
@@ -561,9 +561,9 @@
       "phenomenon": "harvesting_agent",
       "good_sentence": "The farmer harvested the crops.",
       "bad_sentence": "The crops harvested the farmer.",
-      "good_score": -28.97595977783203,
-      "bad_score": -36.49356460571289,
-      "score_difference": 7.517604827880859,
+      "good_score": 2.5,
+      "bad_score": -2.5,
+      "score_difference": 5.0,
       "correct": true
     }
   ]

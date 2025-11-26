@@ -1,5 +1,6 @@
 """BLIMP-format evaluation harness with aggregated metrics and confusion analysis."""
 import json
+import csv
 from pathlib import Path
 from typing import Dict, List, Tuple
 from collections import defaultdict
@@ -141,15 +142,17 @@ class BLIMPEvaluator:
             "correct": 0,
             "accuracy": 0.0,
             "categories": defaultdict(lambda: {"total": 0, "correct": 0, "accuracy": 0.0}),
-            "errors": []
+            "errors": [],
+            "pair_details": []  # Store details for each pair
         }
         
         iterator = tqdm(pairs, desc="Evaluating") if show_progress else pairs
         
-        for pair in iterator:
+        for idx, pair in enumerate(iterator, 1):
             good = pair["good"]
             bad = pair["bad"]
             category = pair.get("category", "default")
+            phenomenon = pair.get("phenomenon", "N/A")
             
             good_score, bad_score, is_correct = self.score_pair(good, bad)
             
@@ -167,6 +170,19 @@ class BLIMPEvaluator:
                     "good_score": good_score,
                     "bad_score": bad_score
                 })
+            
+            # Store pair-wise details
+            results["pair_details"].append({
+                "pair_id": idx,
+                "category": category,
+                "phenomenon": phenomenon,
+                "good_sentence": good,
+                "bad_sentence": bad,
+                "good_score": good_score,
+                "bad_score": bad_score,
+                "score_difference": good_score - bad_score,
+                "correct": is_correct
+            })
         
         # Calculate accuracies
         if results["total"] > 0:
@@ -226,8 +242,64 @@ def save_results(results: Dict, output_path: str):
         "correct": results["correct"],
         "accuracy": results["accuracy"],
         "categories": dict(results["categories"]),
-        "errors": results["errors"]
+        "errors": results["errors"],
+        "pair_details": results.get("pair_details", [])
     }
     
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(serializable_results, f, indent=2)
+
+
+def save_results_csv(results: Dict, output_path: str, model_name: str):
+    """Save evaluation results to CSV file with pair-wise details and summary."""
+    output_path = Path(output_path)
+    
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        
+        # Write header section
+        writer.writerow(["BLIMP Evaluation Results"])
+        writer.writerow(["Model", model_name])
+        writer.writerow(["Overall Accuracy", f"{results['accuracy']:.2%}"])
+        writer.writerow(["Correct", results["correct"]])
+        writer.writerow(["Total", results["total"]])
+        writer.writerow([])  # Empty row
+        
+        # Write category summary
+        writer.writerow(["Category Summary"])
+        writer.writerow(["Category", "Accuracy", "Correct", "Total"])
+        for category, stats in sorted(results["categories"].items()):
+            writer.writerow([
+                category,
+                f"{stats['accuracy']:.2%}",
+                stats["correct"],
+                stats["total"]
+            ])
+        writer.writerow([])  # Empty row
+        
+        # Write pair-wise details
+        writer.writerow(["Pair-wise Results"])
+        writer.writerow([
+            "Pair ID",
+            "Category",
+            "Phenomenon",
+            "Good Sentence",
+            "Bad Sentence",
+            "Good Score",
+            "Bad Score",
+            "Score Difference",
+            "Correct"
+        ])
+        
+        for detail in results.get("pair_details", []):
+            writer.writerow([
+                detail["pair_id"],
+                detail["category"],
+                detail["phenomenon"],
+                detail["good_sentence"],
+                detail["bad_sentence"],
+                f"{detail['good_score']:.4f}",
+                f"{detail['bad_score']:.4f}",
+                f"{detail['score_difference']:.4f}",
+                "✓" if detail["correct"] else "✗"
+            ])
