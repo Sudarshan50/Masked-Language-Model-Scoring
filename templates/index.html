@@ -655,7 +655,49 @@
             display: inline-block;
             min-width: 300px;
         }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin: 0;
+            height: 100%;
+        }
+
+        .chart-container h3 {
+            margin: 0 0 20px 0;
+            color: #333;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .charts-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .summary-section {
+            margin-bottom: 30px;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -681,8 +723,8 @@
             </div>
 
             <div class="form-group">
-                <label for="bad-sentence">❌ Bad Sentence (Ungrammatical)</label>
-                <textarea id="bad-sentence" rows="3" placeholder="Enter an ungrammatical sentence..."></textarea>
+                <label for="bad-sentence">❌ Bad Sentence (Ungrammatical or Unrealistic)</label>
+                <textarea id="bad-sentence" rows="3" placeholder="Enter an ungrammatical or unrealistic sentence..."></textarea>
             </div>
 
             <div class="form-group">
@@ -745,6 +787,10 @@
 
             <div id="bulk-summary" style="display: none;">
                 <div class="summary-stats" id="summary-stats"></div>
+            </div>
+            
+            <div id="bulk-charts" style="display: none;">
+                <!-- Charts will be inserted here -->
             </div>
 
             <div id="bulk-results" class="results-container"></div>
@@ -942,6 +988,11 @@
             const container = document.getElementById('single-results');
             
             let html = `
+                <div class="chart-container" style="margin-bottom: 30px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <h3><span>📊</span> Model Scores Comparison</h3>
+                    <canvas id="single-chart"></canvas>
+                </div>
+                
                 <h3 style="margin-bottom: 20px; color: #333;">📊 Evaluation Results</h3>
                 <table class="results-table">
                     <thead>
@@ -982,7 +1033,102 @@
             });
 
             html += '</tbody></table>';
+            
             container.innerHTML = html;
+            
+            // Create chart after DOM update
+            setTimeout(() => createSingleChart(results), 100);
+        }
+
+        function createSingleChart(results) {
+            const ctx = document.getElementById('single-chart');
+            if (!ctx) return;
+            
+            const models = results.map(r => r.model);
+            const goodScores = results.map(r => r.good_score);
+            const badScores = results.map(r => r.bad_score);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: models,
+                    datasets: [
+                        {
+                            label: 'Good Sentence Score',
+                            data: goodScores,
+                            backgroundColor: 'rgba(45, 158, 89, 0.7)',
+                            borderColor: 'rgba(45, 158, 89, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8
+                        },
+                        {
+                            label: 'Bad Sentence Score',
+                            data: badScores,
+                            backgroundColor: 'rgba(229, 62, 62, 0.7)',
+                            borderColor: 'rgba(229, 62, 62, 1)',
+                            borderWidth: 2,
+                            borderRadius: 8
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    aspectRatio: 2.5,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: { size: 12, weight: '600' },
+                                padding: 12,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                            padding: 12,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            borderColor: 'rgba(99, 102, 241, 0.3)',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y.toFixed(4);
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                font: { size: 12 }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Score (0-10)',
+                                font: { size: 13, weight: '600' },
+                                color: '#334155'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: { size: 11, weight: '500' },
+                                maxRotation: 45,
+                                minRotation: 0
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         function handleFileSelect(event) {
@@ -1132,7 +1278,7 @@
             });
 
             statsContainer.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px;">
                     <div class="stat-card">
                         <h4>${totalPairs}</h4>
                         <p>Total Pairs</p>
@@ -1152,18 +1298,215 @@
                 </div>
                 
                 ${Object.keys(modelStats).length > 0 ? `
-                    <div style="background: #f9fafb; padding: 25px; border-radius: 15px; border: 2px solid #e1e8ed;">
-                        <h3 style="margin: 0 0 20px 0; color: #333; font-size: 1.3em; display: flex; align-items: center; gap: 10px;">
-                            <span>📊</span> Model-wise Performance
-                        </h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                            ${modelStatsHTML}
+                    <div class="summary-section">
+                        <div style="background: #f9fafb; padding: 25px; border-radius: 15px; border: 2px solid #e1e8ed; margin-bottom: 0;">
+                            <h3 style="margin: 0 0 20px 0; color: #333; font-size: 1.3em; display: flex; align-items: center; gap: 10px;">
+                                <span>📊</span> Model-wise Performance
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;">
+                                ${modelStatsHTML}
+                            </div>
                         </div>
                     </div>
                 ` : ''}
             `;
             
             summary.style.display = 'block';
+            
+            // Create charts in separate container after DOM update
+            if (Object.keys(modelStats).length > 0) {
+                setTimeout(() => {
+                    const chartsContainer = document.getElementById('bulk-charts');
+                    chartsContainer.style.display = 'block';
+                    
+                    // Add charts section after all results
+                    const chartsHTML = `
+                        <div class="charts-section">
+                            <h3 style="margin: 0 0 20px 0; color: #333; font-size: 1.4em; display: flex; align-items: center; gap: 10px;">
+                                <span>📈</span> Performance Analytics
+                            </h3>
+                            <div class="charts-grid">
+                                <div class="chart-container">
+                                    <h3><span>📊</span> Model Accuracy Comparison</h3>
+                                    <canvas id="accuracy-chart"></canvas>
+                                </div>
+                                <div class="chart-container">
+                                    <h3><span>📈</span> Performance Across Test Pairs</h3>
+                                    <canvas id="pair-performance-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    chartsContainer.innerHTML = chartsHTML;
+                    createBulkCharts(results, modelStats);
+                }, 100);
+            }
+        }
+
+        function createBulkCharts(results, modelStats) {
+            // Chart 1: Model Accuracy Comparison
+            const accuracyCtx = document.getElementById('accuracy-chart');
+            if (accuracyCtx) {
+                const models = Object.keys(modelStats).sort();
+                const accuracies = models.map(m => (modelStats[m].correct / modelStats[m].total * 100).toFixed(1));
+                const colors = [
+                    'rgba(99, 102, 241, 0.8)',
+                    'rgba(139, 92, 246, 0.8)',
+                    'rgba(217, 70, 239, 0.8)',
+                    'rgba(45, 158, 89, 0.8)',
+                    'rgba(234, 179, 8, 0.8)',
+                    'rgba(239, 68, 68, 0.8)',
+                    'rgba(59, 130, 246, 0.8)',
+                    'rgba(168, 85, 247, 0.8)',
+                    'rgba(236, 72, 153, 0.8)'
+                ];
+                
+                new Chart(accuracyCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: models,
+                        datasets: [{
+                            label: 'Accuracy (%)',
+                            data: accuracies,
+                            backgroundColor: colors.slice(0, models.length),
+                            borderColor: colors.slice(0, models.length).map(c => c.replace('0.8', '1')),
+                            borderWidth: 2,
+                            borderRadius: 10
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 1.8,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                                padding: 12,
+                                titleFont: { size: 14, weight: 'bold' },
+                                bodyFont: { size: 13 },
+                                callbacks: {
+                                    label: (context) => `Accuracy: ${context.parsed.y}%`
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                                ticks: {
+                                    callback: (value) => value + '%',
+                                    font: { size: 12 }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Accuracy (%)',
+                                    font: { size: 13, weight: '600' },
+                                    color: '#334155'
+                                }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: {
+                                    font: { size: 11, weight: '500' },
+                                    maxRotation: 45,
+                                    minRotation: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Chart 2: Model Performance by Pair (Heatmap-style)
+            const pairCtx = document.getElementById('pair-performance-chart');
+            if (pairCtx) {
+                const pairs = [...new Set(results.map(r => r.pair_id))].sort((a, b) => a - b);
+                const models = Object.keys(modelStats).sort();
+                
+                // Create datasets for each model showing their performance across pairs
+                const datasets = models.map((model, idx) => {
+                    const modelResults = results.filter(r => r.model === model);
+                    const pairScores = pairs.map(pairId => {
+                        const result = modelResults.find(r => r.pair_id === pairId);
+                        return result ? result.score_difference : null;
+                    });
+                    
+                    const colors = [
+                        '#6366f1', '#8b5cf6', '#d946ef', '#2d9e59', 
+                        '#eab308', '#ef4444', '#3b82f6', '#a855f7', '#ec4899'
+                    ];
+                    
+                    return {
+                        label: model,
+                        data: pairScores,
+                        borderColor: colors[idx % colors.length],
+                        backgroundColor: colors[idx % colors.length] + '33',
+                        borderWidth: 2,
+                        tension: 0.3,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    };
+                });
+                
+                new Chart(pairCtx, {
+                    type: 'line',
+                    data: {
+                        labels: pairs.map(p => `Pair ${p}`),
+                        datasets: datasets
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        aspectRatio: 1.8,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    font: { size: 11, weight: '600' },
+                                    padding: 10,
+                                    usePointStyle: true,
+                                    boxWidth: 8
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                                padding: 12,
+                                titleFont: { size: 13, weight: 'bold' },
+                                bodyFont: { size: 12 },
+                                callbacks: {
+                                    label: (context) => {
+                                        const value = context.parsed.y;
+                                        return `${context.dataset.label}: ${value > 0 ? '+' : ''}${value.toFixed(4)}`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                                ticks: { font: { size: 11 } },
+                                title: {
+                                    display: true,
+                                    text: 'Score Difference (Good - Bad)',
+                                    font: { size: 12, weight: '600' },
+                                    color: '#334155'
+                                }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: {
+                                    font: { size: 10 },
+                                    maxRotation: 45,
+                                    minRotation: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         function displayBulkResults(results) {
