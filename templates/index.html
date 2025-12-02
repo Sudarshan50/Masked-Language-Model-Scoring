@@ -278,7 +278,7 @@
             border-collapse: collapse;
             background: white;
             border-radius: 12px;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
@@ -294,6 +294,7 @@
             font-size: 0.95em;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            position: relative;
         }
 
         .results-table td {
@@ -499,6 +500,65 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .tooltip .tooltip-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #fff;
+            text-align: left;
+            border-radius: 12px;
+            padding: 12px 16px;
+            position: absolute;
+            z-index: 9999;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -140px;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+            font-size: 13px;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            font-weight: normal;
+            pointer-events: none;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
         
         .stat-card::before {
@@ -887,8 +947,18 @@
                     <thead>
                         <tr>
                             <th>Model</th>
-                            <th>Good Score</th>
-                            <th>Bad Score</th>
+                            <th>Good Score 
+                                <span class="tooltip">
+                                    <span class="tooltip-icon">?</span>
+                                    <span class="tooltiptext">Score (0-10) measuring grammatical correctness and semantic plausibility of the grammatically correct sentence. Higher scores indicate better language model confidence.</span>
+                                </span>
+                            </th>
+                            <th>Bad Score 
+                                <span class="tooltip">
+                                    <span class="tooltip-icon">?</span>
+                                    <span class="tooltiptext">Score (0-10) measuring grammatical correctness and semantic plausibility of the grammatically incorrect sentence. Lower scores indicate the model correctly identifies issues.</span>
+                                </span>
+                            </th>
                             <th>Difference</th>
                             <th>Verdict</th>
                             <th>Time (s)</th>
@@ -1137,8 +1207,18 @@
                             <thead>
                                 <tr>
                                     <th>Model</th>
-                                    <th>Good Score</th>
-                                    <th>Bad Score</th>
+                                    <th>Good Score 
+                                        <span class="tooltip">
+                                            <span class="tooltip-icon">?</span>
+                                            <span class="tooltiptext">Score (0-10) measuring grammatical correctness and semantic plausibility of the grammatically correct sentence. Higher scores indicate better language model confidence.</span>
+                                        </span>
+                                    </th>
+                                    <th>Bad Score 
+                                        <span class="tooltip">
+                                            <span class="tooltip-icon">?</span>
+                                            <span class="tooltiptext">Score (0-10) measuring grammatical correctness and semantic plausibility of the grammatically incorrect sentence. Lower scores indicate the model correctly identifies issues.</span>
+                                        </span>
+                                    </th>
                                     <th>Difference</th>
                                     <th>Verdict</th>
                                     <th>Time (s)</th>
