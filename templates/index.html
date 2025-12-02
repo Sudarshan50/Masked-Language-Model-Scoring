@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIS710 BLimp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25), 0 10px 30px rgba(102, 126, 234, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            background: linear-gradient(to right, #f8fafc, #f1f5f9);
+            border-bottom: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+
+        .tab:hover {
+            background: linear-gradient(to bottom, #ffffff, #f8fafc);
+            color: #6366f1;
+            transform: translateY(-2px);
+        }
+
+        .tab.active {
+            background: white;
+            color: #6366f1;
+            border-bottom: 3px solid #6366f1;
+            box-shadow: 0 -2px 10px rgba(99, 102, 241, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+            font-size: 1em;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            resize: vertical;
+            background: #ffffff;
+        }
+
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
+
+        .model-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .model-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .model-card:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+            border-color: #c7d2fe;
+        }
+        
+        .model-card:hover::before {
+            opacity: 1;
+        }
+
+        .model-card.selected {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-color: #6366f1;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .model-card.selected::before {
+            display: none;
+        }
+
+        .model-card input[type="checkbox"] {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .model-card label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 500;
+            flex: 1;
+            user-select: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            color: white;
+            padding: 16px 48px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn:disabled {
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+            cursor: not-allowed;
+            box-shadow: none;
+            opacity: 0.6;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            margin-left: 10px;
+            box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #475569 0%, #334155 100%);
+            box-shadow: 0 6px 20px rgba(71, 85, 105, 0.4);
+        }
+
+        .results-container {
+            margin-top: 30px;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .results-table thead {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            color: white;
+        }
+
+        .results-table th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .results-table td {
+            padding: 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .results-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .results-table tbody tr {
+            transition: all 0.2s ease;
+        }
+
+        .results-table tbody tr:hover {
+            background: linear-gradient(to right, #f8fafc, #ffffff);
+            transform: scale(1.01);
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+        }
+
+        .verdict-correct {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .verdict-incorrect {
+            color: #dc3545;
+            font-weight: 600;
+        }
+
+        .progress-container {
+            margin: 30px 0;
+            background: #f5f7fa;
+            padding: 25px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .progress-container.active {
+            display: block;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 32px;
+            background: #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            background-size: 200% 100%;
+            animation: gradientShift 2s ease infinite;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .progress-text {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .file-upload {
+            border: 3px dashed #c7d2fe;
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .file-upload::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .file-upload:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-color: #6366f1;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .file-upload:hover::before {
+            opacity: 1;
+        }
+
+        .file-upload.dragover {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border-color: #6366f1;
+            border-style: solid;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .file-name {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .model-section {
+            margin-bottom: 30px;
+        }
+
+        .model-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .alert {
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+            color: #1e40af;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .stat-card h4 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .stat-card p {
+            opacity: 0.95;
+            font-size: 0.95em;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            color: #334155;
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            position: relative;
+            margin-top: 40px;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
+        
+        footer p {
+            margin: 10px 0;
+            font-size: 0.95em;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+        
+        footer .course-info {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        footer .supervisor {
+            color: #475569;
+            font-size: 1em;
+        }
+        
+        footer .supervisor strong {
+            color: #6366f1;
+            font-weight: 600;
+        }
+        
+        footer .year {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #64748b;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+            display: inline-block;
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 BLIMP Evaluation Interface</h1>
+            <p>Evaluate minimal pairs with multiple language models</p>
+        </header>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('single')">
+                📝 Single Evaluation
+            </div>
+            <div class="tab" onclick="switchTab('bulk')">
+                📊 Bulk Evaluation
+            </div>
+        </div>
+
+        <!-- Single Evaluation Tab -->
+        <div class="tab-content active" id="single-tab">
+            <div class="form-group">
+                <label for="good-sentence">✅ Good Sentence (Grammatical)</label>
+                <textarea id="good-sentence" rows="3" placeholder="Enter a grammatically correct sentence..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="bad-sentence">❌ Bad Sentence (Ungrammatical)</label>
+                <textarea id="bad-sentence" rows="3" placeholder="Enter an ungrammatical sentence..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🤖 Select Models</label>
+                <div id="models-loading" style="text-align: center; padding: 20px; color: #657786;">
+                    Loading available models...
+                </div>
+                <div id="single-models" class="model-selection" style="display: none;"></div>
+            </div>
+
+            <button class="btn" onclick="evaluateSingle()">
+                <span id="single-btn-text">Evaluate</span>
+                <span id="single-btn-loading" style="display: none;"><span class="loading"></span> Evaluating...</span>
+            </button>
+
+            <div id="single-results" class="results-container"></div>
+        </div>
+
+        <!-- Bulk Evaluation Tab -->
+        <div class="tab-content" id="bulk-tab">
+            <div class="alert alert-info">
+                📋 Upload a CSV file with columns: <code>good_sentence</code> and <code>bad_sentence</code>
+            </div>
+
+            <div class="form-group">
+                <label>📁 Upload CSV File</label>
+                <div class="file-upload" id="file-upload" onclick="document.getElementById('csv-file').click()">
+                    <div class="file-upload-icon">📤</div>
+                    <p>Click to upload or drag & drop CSV file</p>
+                    <p style="font-size: 0.9em; color: #657786; margin-top: 10px;">Supported format: CSV with good_sentence and bad_sentence columns</p>
+                    <input type="file" id="csv-file" accept=".csv" onchange="handleFileSelect(event)">
+                    <div id="file-name" class="file-name"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>🤖 Select Models</label>
+                <div id="bulk-models" class="model-selection"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn" id="bulk-evaluate-btn" onclick="evaluateBulk()" disabled>
+                    <span id="bulk-btn-text">Start Evaluation</span>
+                    <span id="bulk-btn-loading" style="display: none;"><span class="loading"></span> Processing...</span>
+                </button>
+                <button class="btn btn-secondary" id="bulk-cancel-btn" onclick="cancelBulk()" style="display: none;">
+                    Cancel
+                </button>
+                <button class="btn btn-secondary" id="bulk-download-btn" onclick="downloadResults()" style="display: none;">
+                    💾 Download Results
+                </button>
+            </div>
+
+            <div class="progress-container" id="progress-container">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="progress-bar">0%</div>
+                </div>
+                <div class="progress-text" id="progress-text">Initializing...</div>
+            </div>
+
+            <div id="bulk-summary" style="display: none;">
+                <div class="summary-stats" id="summary-stats"></div>
+            </div>
+
+            <div id="bulk-results" class="results-container"></div>
+        </div>
+    </div>
+    
+    <footer>
+        <p class="course-info">🎓 Developed as part of AIS710 Course Project</p>
+        <p class="supervisor">Under the guidance of <strong>Prof. Ashwini Vaidya</strong></p>
+        <p class="year">© 2025 • BLIMP Evaluation Interface</p>
+    </footer>
+
+    <script>
+        let selectedFile = null;
+        let availableModels = { ollama: [], huggingface: [] };
+        let progressInterval = null;
+
+        // Load available models on page load
+        window.onload = function() {
+            loadModels();
+        };
+
+        async function loadModels() {
+            try {
+                const response = await fetch('/api/models');
+                availableModels = await response.json();
+                renderModels();
+            } catch (error) {
+                console.error('Error loading models:', error);
+                document.getElementById('models-loading').innerHTML = 
+                    '<div class="alert alert-error">Failed to load models. Make sure Ollama is running.</div>';
+            }
+        }
+
+        function renderModels() {
+            const singleContainer = document.getElementById('single-models');
+            const bulkContainer = document.getElementById('bulk-models');
+            
+            let html = '';
+            
+            // Ollama models
+            if (availableModels.ollama.length > 0) {
+                html += '<div class="model-section" style="grid-column: 1 / -1;"><h3>🚀 Ollama Models</h3></div>';
+                availableModels.ollama.forEach(model => {
+                    const modelId = model.replace(/[^a-zA-Z0-9]/g, '_');
+                    html += `
+                        <div class="model-card" data-model="${model}">
+                            <input type="checkbox" id="single-model-${modelId}" value="${model}" data-model="${model}">
+                            <label for="single-model-${modelId}">${model}</label>
+                        </div>
+                    `;
+                });
+            }
+            
+            // HuggingFace models
+            if (availableModels.huggingface.length > 0) {
+                html += '<div class="model-section" style="grid-column: 1 / -1;"><h3>🤗 HuggingFace Models</h3></div>';
+                availableModels.huggingface.forEach(model => {
+                    const modelId = model.replace(/[^a-zA-Z0-9]/g, '_');
+                    html += `
+                        <div class="model-card" data-model="${model}">
+                            <input type="checkbox" id="single-model-${modelId}" value="${model}" data-model="${model}">
+                            <label for="single-model-${modelId}">${model}</label>
+                        </div>
+                    `;
+                });
+            }
+            
+            singleContainer.innerHTML = html;
+            
+            // Render bulk models separately with different IDs
+            html = '';
+            if (availableModels.ollama.length > 0) {
+                html += '<div class="model-section" style="grid-column: 1 / -1;"><h3>🚀 Ollama Models</h3></div>';
+                availableModels.ollama.forEach(model => {
+                    const modelId = model.replace(/[^a-zA-Z0-9]/g, '_');
+                    html += `
+                        <div class="model-card" data-model="${model}">
+                            <input type="checkbox" id="bulk-model-${modelId}" value="${model}" data-model="${model}">
+                            <label for="bulk-model-${modelId}">${model}</label>
+                        </div>
+                    `;
+                });
+            }
+            
+            if (availableModels.huggingface.length > 0) {
+                html += '<div class="model-section" style="grid-column: 1 / -1;"><h3>🤗 HuggingFace Models</h3></div>';
+                availableModels.huggingface.forEach(model => {
+                    const modelId = model.replace(/[^a-zA-Z0-9]/g, '_');
+                    html += `
+                        <div class="model-card" data-model="${model}">
+                            <input type="checkbox" id="bulk-model-${modelId}" value="${model}" data-model="${model}">
+                            <label for="bulk-model-${modelId}">${model}</label>
+                        </div>
+                    `;
+                });
+            }
+            
+            bulkContainer.innerHTML = html;
+            singleContainer.style.display = 'grid';
+            document.getElementById('models-loading').style.display = 'none';
+            
+            // Add click event listeners to all model cards
+            document.querySelectorAll('.model-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't toggle if clicking directly on checkbox or label
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL') {
+                        // Let the default behavior happen
+                        setTimeout(() => {
+                            const checkbox = this.querySelector('input[type="checkbox"]');
+                            this.classList.toggle('selected', checkbox.checked);
+                        }, 10);
+                    } else {
+                        // Click on card itself - toggle checkbox
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        this.classList.toggle('selected', checkbox.checked);
+                    }
+                });
+            });
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        function getSelectedModels(container) {
+            const checkboxes = document.querySelectorAll(`#${container} input[type="checkbox"]:checked`);
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+
+        async function evaluateSingle() {
+            const goodSentence = document.getElementById('good-sentence').value.trim();
+            const badSentence = document.getElementById('bad-sentence').value.trim();
+            const models = getSelectedModels('single-models');
+
+            if (!goodSentence || !badSentence) {
+                alert('Please enter both sentences.');
+                return;
+            }
+
+            if (models.length === 0) {
+                alert('Please select at least one model.');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('single-btn-text').style.display = 'none';
+            document.getElementById('single-btn-loading').style.display = 'inline';
+            document.querySelector('#single-tab .btn').disabled = true;
+            
+            // Show progress message
+            const resultsContainer = document.getElementById('single-results');
+            resultsContainer.innerHTML = `
+                <div style="text-align: center; padding: 40px; color: #667eea;">
+                    <div class="loading" style="width: 40px; height: 40px; margin: 0 auto 20px;"></div>
+                    <h3>Evaluating with ${models.length} model${models.length > 1 ? 's' : ''}...</h3>
+                    <p style="margin-top: 10px; color: #657786;">This may take a few moments</p>
+                </div>
+            `;
+
+            try {
+                const response = await fetch('/api/evaluate/single', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        good_sentence: goodSentence,
+                        bad_sentence: badSentence,
+                        models: models
+                    })
+                });
+
+                const data = await response.json();
+                displaySingleResults(data.results);
+            } catch (error) {
+                console.error('Error:', error);
+                resultsContainer.innerHTML = `
+                    <div class="alert alert-error">
+                        Evaluation failed. Please try again. Error: ${error.message}
+                    </div>
+                `;
+            } finally {
+                // Reset button state
+                document.getElementById('single-btn-text').style.display = 'inline';
+                document.getElementById('single-btn-loading').style.display = 'none';
+                document.querySelector('#single-tab .btn').disabled = false;
+            }
+        }
+
+        function displaySingleResults(results) {
+            const container = document.getElementById('single-results');
+            
+            let html = `
+                <h3 style="margin-bottom: 20px; color: #333;">📊 Evaluation Results</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Good Score</th>
+                            <th>Bad Score</th>
+                            <th>Difference</th>
+                            <th>Verdict</th>
+                            <th>Time (s)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            results.forEach(result => {
+                const verdictClass = result.verdict.includes('✓') ? 'verdict-correct' : 'verdict-incorrect';
+                html += `
+                    <tr>
+                        <td><strong>${result.model}</strong></td>
+                        <td>${result.good_score}</td>
+                        <td>${result.bad_score}</td>
+                        <td>${result.score_difference > 0 ? '+' : ''}${result.score_difference}</td>
+                        <td class="${verdictClass}">${result.verdict}</td>
+                        <td>${result.time_taken}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                selectedFile = file;
+                document.getElementById('file-name').textContent = `Selected: ${file.name}`;
+                document.getElementById('bulk-evaluate-btn').disabled = false;
+            }
+        }
+
+        // Drag and drop
+        const fileUpload = document.getElementById('file-upload');
+        fileUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUpload.classList.add('dragover');
+        });
+
+        fileUpload.addEventListener('dragleave', () => {
+            fileUpload.classList.remove('dragover');
+        });
+
+        fileUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUpload.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.csv')) {
+                document.getElementById('csv-file').files = e.dataTransfer.files;
+                handleFileSelect({ target: { files: [file] } });
+            } else {
+                alert('Please upload a CSV file.');
+            }
+        });
+
+        async function evaluateBulk() {
+            const models = getSelectedModels('bulk-models');
+
+            if (!selectedFile) {
+                alert('Please upload a CSV file.');
+                return;
+            }
+
+            if (models.length === 0) {
+                alert('Please select at least one model.');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('bulk-btn-text').style.display = 'none';
+            document.getElementById('bulk-btn-loading').style.display = 'inline';
+            document.getElementById('bulk-evaluate-btn').disabled = true;
+            document.getElementById('bulk-cancel-btn').style.display = 'inline-block';
+            document.getElementById('progress-container').classList.add('active');
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            models.forEach(model => formData.append('models[]', model));
+
+            try {
+                const response = await fetch('/api/evaluate/bulk', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    startProgressPolling();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to start evaluation.');
+                resetBulkUI();
+            }
+        }
+
+        function startProgressPolling() {
+            progressInterval = setInterval(async () => {
+                try {
+                    const response = await fetch('/api/progress');
+                    const data = await response.json();
+
+                    const percent = data.total > 0 ? (data.current / data.total * 100).toFixed(1) : 0;
+                    document.getElementById('progress-bar').style.width = percent + '%';
+                    document.getElementById('progress-bar').textContent = percent + '%';
+                    
+                    // Enhanced progress text with model and pair info
+                    let progressText = `Processing: ${data.current} / ${data.total} evaluations`;
+                    if (data.current_model) {
+                        progressText += `<br>📊 Current Model: <strong>${data.current_model}</strong>`;
+                    }
+                    if (data.current_pair > 0) {
+                        progressText += `<br>📝 Evaluating Pair: <strong>#${data.current_pair}</strong>`;
+                    }
+                    document.getElementById('progress-text').innerHTML = progressText;
+
+                    if (data.status === 'completed' || data.status === 'cancelled') {
+                        clearInterval(progressInterval);
+                        displayBulkResults(data.results);
+                        resetBulkUI();
+                        
+                        if (data.status === 'completed') {
+                            document.getElementById('bulk-download-btn').style.display = 'inline-block';
+                            showSummary(data.results);
+                        }
+                    }
+                } catch (error) {
+                    console.error('Progress polling error:', error);
+                }
+            }, 500);
+        }
+
+        function showSummary(results) {
+            const summary = document.getElementById('bulk-summary');
+            const statsContainer = document.getElementById('summary-stats');
+            
+            const totalPairs = new Set(results.map(r => r.pair_id)).size;
+            const totalCorrect = results.filter(r => r.verdict.includes('✓')).length;
+            const totalTime = results.reduce((sum, r) => sum + r.time_taken, 0);
+            const avgTime = (totalTime / results.length).toFixed(2);
+            
+            // Calculate model-wise accuracy
+            const modelStats = {};
+            results.forEach(result => {
+                if (!modelStats[result.model]) {
+                    modelStats[result.model] = { correct: 0, total: 0, time: 0 };
+                }
+                modelStats[result.model].total++;
+                modelStats[result.model].time += result.time_taken;
+                if (result.verdict.includes('✓')) {
+                    modelStats[result.model].correct++;
+                }
+            });
+
+            let modelStatsHTML = '';
+            Object.keys(modelStats).sort().forEach(model => {
+                const stats = modelStats[model];
+                const accuracy = ((stats.correct / stats.total) * 100).toFixed(1);
+                const avgModelTime = (stats.time / stats.total).toFixed(2);
+                modelStatsHTML += `
+                    <div class="stat-card" style="min-width: 180px;">
+                        <h4>${accuracy}%</h4>
+                        <p><strong>${model}</strong></p>
+                        <p style="font-size: 0.85em; margin-top: 5px; color: rgba(255,255,255,0.8);">
+                            ${stats.correct}/${stats.total} correct • ${avgModelTime}s avg
+                        </p>
+                    </div>
+                `;
+            });
+
+            statsContainer.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <h4>${totalPairs}</h4>
+                        <p>Total Pairs</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${totalCorrect}</h4>
+                        <p>Correct Evaluations</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${((totalCorrect / results.length) * 100).toFixed(1)}%</h4>
+                        <p>Overall Accuracy</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>${avgTime}s</h4>
+                        <p>Avg Time per Evaluation</p>
+                    </div>
+                </div>
+                
+                ${Object.keys(modelStats).length > 0 ? `
+                    <div style="background: #f9fafb; padding: 25px; border-radius: 15px; border: 2px solid #e1e8ed;">
+                        <h3 style="margin: 0 0 20px 0; color: #333; font-size: 1.3em; display: flex; align-items: center; gap: 10px;">
+                            <span>📊</span> Model-wise Performance
+                        </h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            ${modelStatsHTML}
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+            
+            summary.style.display = 'block';
+        }
+
+        function displayBulkResults(results) {
+            const container = document.getElementById('bulk-results');
+            
+            // Group results by pair_id
+            const groupedResults = {};
+            results.forEach(result => {
+                if (!groupedResults[result.pair_id]) {
+                    groupedResults[result.pair_id] = {
+                        good_sentence: result.good_sentence,
+                        bad_sentence: result.bad_sentence,
+                        models: []
+                    };
+                }
+                groupedResults[result.pair_id].models.push(result);
+            });
+            
+            let html = '<h3 style="margin-bottom: 20px; color: #333;">📊 Bulk Evaluation Results</h3>';
+            
+            // Display each pair with all its model evaluations
+            Object.keys(groupedResults).sort((a, b) => parseInt(a) - parseInt(b)).forEach(pairId => {
+                const pair = groupedResults[pairId];
+                
+                html += `
+                    <div style="margin-bottom: 30px; border: 2px solid #e1e8ed; border-radius: 10px; overflow: hidden;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px;">
+                            <h4 style="margin: 0; font-size: 1.1em;">Pair #${pairId}</h4>
+                        </div>
+                        <div style="padding: 20px; background: #f9fafb;">
+                            <div style="margin-bottom: 15px;">
+                                <strong style="color: #2d9e59;">✓ Good:</strong> 
+                                <span style="font-style: italic;">${pair.good_sentence}</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong style="color: #e53e3e;">✗ Bad:</strong> 
+                                <span style="font-style: italic;">${pair.bad_sentence}</span>
+                            </div>
+                        </div>
+                        <table class="results-table" style="margin: 0;">
+                            <thead>
+                                <tr>
+                                    <th>Model</th>
+                                    <th>Good Score</th>
+                                    <th>Bad Score</th>
+                                    <th>Difference</th>
+                                    <th>Verdict</th>
+                                    <th>Time (s)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                `;
+                
+                pair.models.forEach(result => {
+                    const verdictClass = result.verdict.includes('✓') ? 'verdict-correct' : 'verdict-incorrect';
+                    html += `
+                        <tr>
+                            <td><strong>${result.model}</strong></td>
+                            <td>${result.good_score}</td>
+                            <td>${result.bad_score}</td>
+                            <td>${result.score_difference > 0 ? '+' : ''}${result.score_difference}</td>
+                            <td class="${verdictClass}">${result.verdict}</td>
+                            <td>${result.time_taken}</td>
+                        </tr>
+                    `;
+                });
+                
+                html += `
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        async function cancelBulk() {
+            if (confirm('Are you sure you want to cancel the evaluation?')) {
+                await fetch('/api/cancel', { method: 'POST' });
+                clearInterval(progressInterval);
+                resetBulkUI();
+                document.getElementById('progress-text').textContent = 'Evaluation cancelled.';
+            }
+        }
+
+        function resetBulkUI() {
+            document.getElementById('bulk-btn-text').style.display = 'inline';
+            document.getElementById('bulk-btn-loading').style.display = 'none';
+            document.getElementById('bulk-evaluate-btn').disabled = false;
+            document.getElementById('bulk-cancel-btn').style.display = 'none';
+        }
+
+        async function downloadResults() {
+            window.location.href = '/api/download/csv';
+        }
+    </script>
+</body>
+</html>

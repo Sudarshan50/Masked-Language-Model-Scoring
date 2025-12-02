@@ -1,0 +1,13 @@
+BLIMP Evaluation Results (Ollama)
+
+Comparative Summary
+Model,Accuracy,Correct,Total,Avg Time/Pair (s)
+qwen2.5:3b,80.00%,4,5,1.26
+
+Pair-wise Results
+Model,Pair ID,Category,Phenomenon,Good Sentence,Bad Sentence,Good Score,Bad Score,Score Difference,Correct,Time Taken
+qwen2.5:3b,1,default,N/A,I gave John the button.,I gave John the wall.,2.5000,-1.5000,4.0000,✓,4.5632
+qwen2.5:3b,2,default,N/A,She ate the apple.,She ate the computer.,2.5000,-2.5000,5.0000,✓,0.4080
+qwen2.5:3b,3,default,N/A,He put the key in his pocket.,He put the house in his pocket.,2.5000,-2.5000,5.0000,✓,0.4751
+qwen2.5:3b,4,default,N/A,I used to play chess,I used to play pills,2.5000,-2.5000,5.0000,✓,0.4063
+qwen2.5:3b,5,default,N/A,I handed over a book to him,I handed over a wall to him,2.5000,2.5000,0.0000,✗,0.4354

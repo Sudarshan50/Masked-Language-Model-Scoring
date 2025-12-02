@@ -1,0 +1,3 @@
+{"good": "The dog barks.", "bad": "The dog bark.", "category": "subject_verb_agreement", "phenomenon": "agreement"}
+{"good": "She walks to the store.", "bad": "She walk to the store.", "category": "subject_verb_agreement", "phenomenon": "agreement"}
+{"good": "They are happy.", "bad": "They is happy.", "category": "subject_verb_agreement", "phenomenon": "agreement"}

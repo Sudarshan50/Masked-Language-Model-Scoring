@@ -16,7 +16,7 @@ class BLIMPEvaluator:
     def __init__(self, model_name: str, model_type: str, device: str = "cpu", batch_size: int = 8):
         """
         Args:
-            model_name: HuggingFace model identifier
+            model_name: HuggingFace model identifier or Ollama model tag
             model_type: Either 'clm' or 'mlm'
             device: 'cpu' or 'cuda'
             batch_size: Batch size for MLM scoring (ignored for CLM)
@@ -25,32 +25,113 @@ class BLIMPEvaluator:
         self.model_type = model_type
         self.device = device
         self.batch_size = batch_size
+        self.use_ollama = False
         
-        # Cache model and tokenizer
-        from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForMaskedLM
-        import torch
+        # Check if it's likely an Ollama model
+        is_ollama_pattern = ":" in model_name or "llama" in model_name.lower() or "mistral" in model_name.lower() or "qwen" in model_name.lower() or "deepseek" in model_name.lower()
         
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        if model_type == "clm":
-            self.model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+        if is_ollama_pattern:
+            try:
+                import ollama
+                models = ollama.list()
+                if isinstance(models, dict):
+                    available_models = [m.get('name', '') for m in models.get('models', [])]
+                else:
+                    available_models = [getattr(m, 'name', getattr(m, 'model', '')) for m in getattr(models, 'models', [])]
+                
+                if any(model_name == m or m.startswith(model_name + ':') for m in available_models):
+                    self.use_ollama = True
+                    print(f"Detected Ollama model: {model_name}")
+            except ImportError:
+                pass
+            except Exception as e:
+                print(f"Warning: Failed to check Ollama availability: {e}")
+
+        if not self.use_ollama:
+            # Cache model and tokenizer for HuggingFace models
+            from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForMaskedLM
+            import torch
+            
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            if model_type == "clm":
+                self.model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
+            else:
+                self.model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)
+            self.model.eval()
+            self.torch = torch
         else:
-            self.model = AutoModelForMaskedLM.from_pretrained(model_name).to(device)
-        self.model.eval()
-        self.torch = torch
+            self.model = None
+            self.tokenizer = None
+            self.torch = None
         
-    def score_pair(self, good: str, bad: str) -> Tuple[float, float, bool]:
-        """Score a minimal pair and return (good_score, bad_score, is_correct)."""
-        import torch.nn.functional as F
+    def score_pair(self, good: str, bad: str) -> Tuple[float, float, bool, float]:
+        """Score a minimal pair and return (good_score, bad_score, is_correct, time_taken)."""
+        import time
+        start_time = time.time()
         
-        if self.model_type == "clm":
+        if self.use_ollama:
+            good_score = self._score_ollama(good)
+            bad_score = self._score_ollama(bad)
+        elif self.model_type == "clm":
             good_score = self._score_clm(good)
             bad_score = self._score_clm(bad)
         else:
             good_score = self._score_mlm(good)
             bad_score = self._score_mlm(bad)
         
+        end_time = time.time()
+        time_taken = end_time - start_time
+        
         is_correct = good_score > bad_score
-        return good_score, bad_score, is_correct
+        return good_score, bad_score, is_correct, time_taken
+
+    def _score_ollama(self, sentence: str, max_retries: int = 3) -> float:
+        """Score sentence using Ollama API with prompt-based rating."""
+        import ollama
+        import re
+        import time
+        
+        for attempt in range(max_retries):
+            try:
+                prompt = f"""Rate the grammatical correctness of this sentence from 0-10 (0=ungrammatical, 10=perfect).
+
+Sentence: "{sentence}"
+
+Answer with ONLY the number, no explanation:"""
+
+                response = ollama.generate(
+                    model=self.model_name,
+                    prompt=prompt,
+                    options={
+                        "temperature": 0.0,
+                        "num_predict": 2048,
+                        "num_ctx": 4096
+                    }
+                )
+                
+                response_text = response.get('response', '').strip()
+                
+                # Remove <think>...</think> blocks for reasoning models (e.g. DeepSeek R1)
+                response_text = re.sub(r'<think>.*?</think>', '', response_text, flags=re.DOTALL).strip()
+                
+                # Extract first number from response
+                numbers = re.findall(r'\d+\.?\d*', response_text)
+                if numbers:
+                    score = float(numbers[0])
+                    # Clamp to 0-10 range
+                    score = max(0, min(10, score))
+                    # Return raw 0-10 score
+                    return score
+                else:
+                    # Fallback: if no number found, return 0
+                    return 0.0
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(1)
+                    continue
+                else:
+                    print(f"Error scoring with Ollama: {e}")
+                    return 0.0
     
     def _score_clm(self, sentence: str) -> float:
         """Score sentence using autoregressive LM."""
@@ -68,7 +149,16 @@ class BLIMPEvaluator:
         
         log_probs = F.log_softmax(shift_logits, dim=-1)
         token_log_probs = log_probs.gather(2, shift_labels.unsqueeze(-1)).squeeze(-1)
-        return float(token_log_probs.sum().cpu().item())
+        total_log_prob = float(token_log_probs.sum().cpu().item())
+        num_tokens = shift_labels.shape[1]
+        
+        # Normalize to 0-10 scale
+        # Avg log-prob is typically -10 to 0. Map to 0-10.
+        if num_tokens > 0:
+            avg_log_prob = total_log_prob / num_tokens
+            score = avg_log_prob + 10.0
+            return max(0.0, min(10.0, score))
+        return 0.0
     
     def _score_mlm(self, sentence: str) -> float:
         """Score sentence using MLM with PLL-word-l2r."""
@@ -124,7 +214,13 @@ class BLIMPEvaluator:
                 lp = float(log_probs[target_id].cpu().item())
                 total_log_prob += lp
         
-        return total_log_prob
+        # Normalize to 0-10 scale
+        num_tokens = len(input_ids)
+        if num_tokens > 0:
+            avg_log_prob = total_log_prob / num_tokens
+            score = avg_log_prob + 10.0
+            return max(0.0, min(10.0, score))
+        return 0.0
     
     def evaluate(self, pairs: List[Dict], show_progress: bool = True) -> Dict:
         """
@@ -154,7 +250,7 @@ class BLIMPEvaluator:
             category = pair.get("category", "default")
             phenomenon = pair.get("phenomenon", "N/A")
             
-            good_score, bad_score, is_correct = self.score_pair(good, bad)
+            good_score, bad_score, is_correct, time_taken = self.score_pair(good, bad)
             
             results["total"] += 1
             results["categories"][category]["total"] += 1
@@ -181,7 +277,8 @@ class BLIMPEvaluator:
                 "good_score": good_score,
                 "bad_score": bad_score,
                 "score_difference": good_score - bad_score,
-                "correct": is_correct
+                "correct": is_correct,
+                "time_taken": time_taken
             })
         
         # Calculate accuracies
