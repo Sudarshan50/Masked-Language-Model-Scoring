@@ -1,5 +1,0 @@
-Model,Accuracy (%),Correct,Total,Errors
-Unknown,100.0,50,50,0
-llama3.1:8b,96.0,48,50,2
-qwen2.5:3b,96.0,48,50,2
-Unknown,84.0,42,50,8

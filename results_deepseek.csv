@@ -1,6 +1,0 @@
-model,model_type,pair_id,category,phenomenon,good_sentence,bad_sentence,good_score,bad_score,score_difference,correct
-deepseek-r1:7b,mlm,1,island_effects,adjunct_island,Who should Derek hug after shocking Richard?,Who should Derek hug Richard after shocking?,1.5,0.5,1.0,True
-deepseek-r1:7b,mlm,2,island_effects,adjunct_island,What had Theresa walked through while talking about that high school?,What had Theresa walked through that high school while talking about?,1.0,1.0,0.0,False
-deepseek-r1:7b,mlm,3,island_effects,adjunct_island,Who will Katherine discover without hiring Erin?,Who will Katherine discover Erin without hiring?,1.0,0.5,0.5,True
-deepseek-r1:7b,mlm,4,island_effects,adjunct_island,Who has Colleen aggravated before kissing Judy?,Who has Colleen aggravated Judy before kissing?,0.5,1.5,-1.0,False
-deepseek-r1:7b,mlm,5,island_effects,adjunct_island,What could a lot of cats break while finding all convertibles?,What could a lot of cats break all convertibles while finding?,1.0,1.0,0.0,False

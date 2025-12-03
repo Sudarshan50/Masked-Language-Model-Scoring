@@ -1,5 +1,0 @@
-Loading pairs from data/extensive_test_pairs.jsonl...
-Loaded 50 minimal pairs
-
-Initializing Ollama evaluator with model: llama3.1:8b
-Evaluating:   0%|          | 0/50 [00:00<?, ?it/s]Evaluating:   2%|▏         | 1/50 [00:05<04:17,  5.25s/it]Evaluating:   4%|▍         | 2/50 [00:06<02:13,  2.78s/it]Evaluating:   6%|▌         | 3/50 [00:07<01:45,  2.24s/it]Evaluating:   8%|▊         | 4/50 [00:09<01:26,  1.87s/it]Evaluating:  10%|█         | 5/50 [00:10<01:07,  1.51s/it]Evaluating:  12%|█▏        | 6/50 [00:10<00:57,  1.31s/it]Evaluating:  14%|█▍        | 7/50 [00:11<00:51,  1.20s/it]
