@@ -2,7 +2,7 @@
 
 # 🎓 AIS710: BLIMP Evaluation Interface
 
-<img src="images/hero.png" alt="BLIMP Evaluation Interface" width="100%" style="border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);" />
+<img src="images/hero.png" alt="BLIMP Evaluation Interface" width="85%" style="border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); margin: 20px 0;" />
 
 <br>
 
